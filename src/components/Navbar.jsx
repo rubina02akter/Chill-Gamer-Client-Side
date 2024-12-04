@@ -1,8 +1,15 @@
 import userIcon from "../../src/assets/icons/user.png";
 import { Link, NavLink } from "react-router-dom";
 import logo from '../../src/assets/icons/logo-2.png'
+import { useContext } from "react";
+import { AuthContext } from "../Provider/AuthProvider";
+
 
 const Navbar = () => {
+
+  const{user, signOutUser} = useContext(AuthContext)
+  console.log(user);
+  
   const links = (
     <>
       <li>
@@ -25,6 +32,14 @@ const Navbar = () => {
       </li>
     </>
   );
+
+  const handleSignOut = () => {
+    signOutUser()
+      .then(() => {
+        console.log("signout successfully");
+      })
+      .catch((error) => console.log("ERROR", error.message));
+  };
 
   return (
     <div className="navbar bg-base-100">
@@ -61,7 +76,7 @@ const Navbar = () => {
           </ul>
       </div>
       <div className="navbar-end">
-        {/* <div>
+        <div>
           {user && user?.email ? (
             <div className="flex mr-3 font-bold">
              
@@ -75,9 +90,9 @@ const Navbar = () => {
           ) : (
             <img src={userIcon} alt="user" />
           )}
-        </div> */}
+        </div>
 
-        {/* {user ? (
+        {user ? (
           <>
             <a onClick={handleSignOut} className="btn btn-neutral">
               Log out
@@ -87,7 +102,7 @@ const Navbar = () => {
           <Link className="btn btn-outline ml-3" to="/login">
             Log in
           </Link>
-        )} */}
+        )}
       </div>
     </div>
   );

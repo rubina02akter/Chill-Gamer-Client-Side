@@ -2,7 +2,7 @@ import React from 'react';
 
 const UpdateReview = () => {
   return (
-    <div className=" p-24">
+    <div className=" p-6 md:p-16">
       <h2 className="text-3xl font-extrabold">Update Review</h2>
       <form className="space-y-8" >
 
