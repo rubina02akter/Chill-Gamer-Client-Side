@@ -1,9 +1,9 @@
 import React from 'react';
 
-const AddReview = () => {
+const UpdateReview = () => {
   return (
     <div className=" p-24">
-      <h2 className="text-3xl font-extrabold">Add Review</h2>
+      <h2 className="text-3xl font-extrabold">Update Review</h2>
       <form className="space-y-8" >
 
         {/* form Game Cover Image and Game Title row */}
@@ -113,11 +113,11 @@ const AddReview = () => {
           </div>
         </div>
 
-        <input type="submit" value="Add Review" className="btn btn-block bg-green-600 text-white text-lg"/>
+        <input type="submit" value="Update Review" className="btn btn-block bg-green-600 text-white text-lg"/>
       </form>
     </div>
   );
 };
 
 
-export default AddReview;
+export default UpdateReview;

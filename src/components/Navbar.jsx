@@ -1,5 +1,6 @@
 import userIcon from "../../src/assets/icons/user.png";
 import { Link, NavLink } from "react-router-dom";
+import logo from '../../src/assets/icons/logo-2.png'
 
 const Navbar = () => {
   const links = (
@@ -9,6 +10,12 @@ const Navbar = () => {
       </li>
       <li>
        <NavLink to='/allreviews'>All Reviews</NavLink>
+      </li>
+      <li>
+       <NavLink to='/addReview'>Add Review</NavLink>
+      </li>
+      <li>
+       <NavLink to='/updateReview'>Update Review</NavLink>
       </li>
       <li>
        <NavLink to='/login'>Log In</NavLink>
@@ -41,15 +48,17 @@ const Navbar = () => {
           </div>
           <ul
             tabIndex={0}
-            className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow"
+            className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[2] mt-3 w-52 p-2 shadow"
           >
             {links}
           </ul>
         </div>
-        <img className="md:w-24 w-12" src='{logo}' alt="logo" />
+        <img className="md:w-12 md:h-12 h-8 rounded-full w-8" src={logo} alt="logo" />
       </div>
       <div className="navbar-center hidden lg:flex">
-        <ul className="menu menu-horizontal px-1 space-x-3">{links}</ul>
+        <ul className="menu menu-horizontal px-1 space-x-3">
+          {links}
+          </ul>
       </div>
       <div className="navbar-end">
         {/* <div>
