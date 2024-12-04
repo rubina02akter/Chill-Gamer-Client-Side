@@ -56,14 +56,16 @@ const UpdateReview = () => {
             <label className="label">
               <span className="label-text">Rating</span>
             </label>
-            <label className="input-group">
-              <input
-                type="text"
-                name="rating"
-                placeholder=" provide a rating (e.g., 1-5 or 1-10)"
-                className="input input-bordered w-full"
-              />
-            </label>
+            <input
+              type="number"
+              name="rating"
+              placeholder="Provide a rating (e.g., 1-5)"
+              min="1"
+              max="5"
+              step="1"
+              className="input input-bordered w-full"
+              required
+            />
           </div>
         </div>
         {/* form Publishing year and genre row */}
@@ -81,19 +83,24 @@ const UpdateReview = () => {
               />
             </label>
           </div>
-
           <div className="form-control md:w-1/2">
             <label className="label">
               <span className="label-text">Genres</span>
             </label>
-            <label className="input-group">
-              <input
-                type="text"
-                name="genres"
-                placeholder="select one (e.g., Action, RPG, Adventure)"
-                className="input input-bordered w-full"
-              />
-            </label>
+            <select
+              name="genres"
+              className="select select-bordered w-full text-gray-400"
+              required
+            >
+              <option value="" disabled selected>
+                Select one (e.g., Action, RPG, Adventure)
+              </option>
+              <option value="action">Action</option>
+              <option value="rpg">RPG</option>
+              <option value="adventure">Adventure</option>
+              <option value="shooter">Shooter</option>
+              <option value="puzzle">Puzzle</option>
+            </select>
           </div>
         </div>
         {/* form row */}
