@@ -6,6 +6,9 @@ import Register from "../components/Register";
 import AddReview from "../Pages/AddReview";
 import UpdateReview from "../Pages/UpdateReview";
 import LogIn from "../components/LogIn";
+import MyReview from "../Pages/MyReview";
+import WatchList from "../Pages/WatchList";
+import PrivateRoutes from "./PrivateRoutes";
 
 
 const router = createBrowserRouter([
@@ -32,11 +35,19 @@ const router = createBrowserRouter([
       },
       {
         path:'addReview',
-        element: <AddReview></AddReview>
+        element: <PrivateRoutes><AddReview></AddReview></PrivateRoutes>
       },
       {
         path:'updateReview',
         element: <UpdateReview></UpdateReview>
+      },
+      {
+        path:'myReviews',
+        element: <PrivateRoutes><MyReview></MyReview></PrivateRoutes>
+      },
+      {
+        path:'watchlist',
+        element: <PrivateRoutes><WatchList></WatchList></PrivateRoutes>
       },
     ]
   }

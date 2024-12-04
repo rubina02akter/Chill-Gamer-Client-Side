@@ -18,18 +18,25 @@ const Navbar = () => {
       <li>
        <NavLink to='/allreviews'>All Reviews</NavLink>
       </li>
-      <li>
+     {
+      user && (
+        <>
+         <li>
        <NavLink to='/addReview'>Add Review</NavLink>
       </li>
       <li>
        <NavLink to='/updateReview'>Update Review</NavLink>
       </li>
       <li>
-       <NavLink to='/login'>Log In</NavLink>
+       <NavLink to='/myReviews'>My Review</NavLink>
       </li>
       <li>
-       <NavLink to='/register'>Register</NavLink>
+       <NavLink to='/watchlist'>Game WatchList</NavLink>
       </li>
+      
+        </>
+      )
+     }
     </>
   );
 
@@ -42,7 +49,7 @@ const Navbar = () => {
   };
 
   return (
-    <div className="navbar bg-base-100">
+    <div className="navbar bg-base-100 mt-6">
       <div className="navbar-start">
         <div className="dropdown">
           <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -78,9 +85,9 @@ const Navbar = () => {
       <div className="navbar-end">
         <div>
           {user && user?.email ? (
-            <div className="flex mr-3 font-bold">
+            <div className="flex mr-3 font-bold tooltip" data-tip={user?.displayName
+            }>
              
-              <p className="mt-3 text-xs font-thin">{user.email}</p>
               <img
                 className="w-12 h-12 rounded-full object-cover mr-10 md:mr-0"
                 src={user?.photoURL}
