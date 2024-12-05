@@ -4,7 +4,6 @@ import { Link } from "react-router-dom";
 const HomeCards = ({ card }) => {
   const { rating, name, photo, review } = card;
  
-
   return (
     <div>
      <div className="flex justify-center">

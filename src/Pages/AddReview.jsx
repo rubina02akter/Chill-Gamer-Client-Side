@@ -99,9 +99,9 @@ const AddReview = () => {
             <input
               type="number"
               name="rating"
-              placeholder="Provide a rating (e.g., 1-5)"
+              placeholder="Provide a rating (e.g., 1-10)"
               min="1"
-              max="5"
+              max="10"
               step="1"
               className="input input-bordered w-full"
               required
