@@ -1,40 +1,49 @@
-const ReviewCards = ({ reviewCard }) => {
+import { useEffect, useState } from "react";
+import { Link, useParams } from "react-router-dom";
 
-  const{ photo, name, review, rating, genres }=reviewCard;
+const ReviewCards = () => {
+  const { id } = useParams(); 
+  const [detail, setDetail] = useState(null); 
 
+  useEffect(() => {
+    fetch("https://game-review-server-side.vercel.app/highestRated")
+      .then((res) => res.json())
+      .then((data) => {
+        // Find the review based on 'id'
+        const find = data.find((d) => d._id === id);
+        setDetail(find);
+      })
+      .catch((error) => console.error("Error fetching data:", error));
+  }, [id]); 
+
+  
+  const { name, description, photo, rating, genres, email } = detail || {}; 
+
+  console.log(detail || "No details available");
 
   return (
-    <div className="grid md:grid-cols-2  border rounded-xl">
-      <div className="md:w-2/3 w-full">
-        <img src={photo} alt="" className="w-[400px] md:h-[200px] h-[150px] rounded-xl object-cover"/>
-      </div>
-      <div className="flex flex-col justify-center">
-      <h2 className="card-title">{name}</h2>
-          <p>{review}</p>
-        <div className="card-actions justify-start">
-             <button className="btn btn-outline">Explore Details</button>
+    <div>
+      {detail ? (
+        <div className="flex justify-center">
+          <div className="grid m-12">
+            <div className=" rounded-xl">
+              <img src={photo} alt="game" className="w-[600px] h-[350px] object-cover  rounded-xl" />
+            </div>
+
+            <div className=" rounded-xl">
+              <h2 className="">Game Title : {name}</h2>
+              <p> Review : {description}</p>
+              <p> Rating : {rating}</p>
+              <p>Genre : {genres}</p>
+              <p> Email : {email}</p>
+              <Link className="btn btn-success text-white w-48" to='/'>Go Back</Link>
+            </div>
+          </div>
         </div>
-      </div>
+      ) : (
+        <p>Loading...</p>
+      )}
     </div>
-    // <div>
-    //   <div className="card card-side bg-base-100 shadow-xl">
-    //     <div className="lg:w-1/3 md:w-1/4 ">
-    //       <img
-    //         src={photo}
-    //         className="lg:w-[400px] md:w-[300px] w-full  h-[200px] rounded-lg object-cover"
-    //         alt="Movie"
-    //       />
-    //     </div>
-    //     <div className="card-body">
-    //       <h2 className="card-title">{name}</h2>
-    //       <p>{review}</p>
-    //       <div className="card-actions justify-start">
-    //         <button className="btn btn-outline">Explore Details</button>
-    //       </div>
-    //     </div>
-    //   </div>
-    // </div>
   );
 };
-
 export default ReviewCards;

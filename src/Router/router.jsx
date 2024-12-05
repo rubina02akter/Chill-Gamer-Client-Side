@@ -11,6 +11,7 @@ import WatchList from "../Pages/WatchList";
 import PrivateRoutes from "./PrivateRoutes";
 import ReviewDetails from "../Pages/ReviewDetails";
 import Error from "../Pages/Error";
+import ReviewCards from "../components/ReviewCards";
 
 
 const router = createBrowserRouter([
@@ -62,6 +63,10 @@ const router = createBrowserRouter([
         ),
         // loader: ({ params }) =>
         //   fetch(`https://game-review-server-side.vercel.app/reviews/${params.id}`),
+      },
+      {
+        path: 'highestRated/:id',
+        element: <ReviewCards></ReviewCards>
       }
       
     ]
