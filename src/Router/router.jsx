@@ -9,6 +9,7 @@ import LogIn from "../components/LogIn";
 import MyReview from "../Pages/MyReview";
 import WatchList from "../Pages/WatchList";
 import PrivateRoutes from "./PrivateRoutes";
+import ReviewDetails from "../Pages/ReviewDetails";
 
 
 const router = createBrowserRouter([
@@ -23,7 +24,7 @@ const router = createBrowserRouter([
       {
         path:'allreviews',
         element: <AllReviews></AllReviews>,
-        loader:() => fetch('http://localhost:5000/reviews')
+        loader:() => fetch('https://game-review-server-side.vercel.app/reviews')
       },
       {
         path:'login',
@@ -49,6 +50,17 @@ const router = createBrowserRouter([
         path:'watchlist',
         element: <PrivateRoutes><WatchList></WatchList></PrivateRoutes>
       },
+      {
+        path: 'review/:id',
+        element: (
+          <PrivateRoutes>
+            <ReviewDetails></ReviewDetails>
+          </PrivateRoutes>
+        ),
+        // loader: ({ params }) =>
+        //   fetch(`https://game-review-server-side.vercel.app/reviews/${params.id}`),
+      }
+      
     ]
   }
 ])

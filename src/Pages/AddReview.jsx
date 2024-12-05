@@ -1,7 +1,9 @@
-import React from "react";
+import  { useContext } from "react";
 import Swal from "sweetalert2";
+import { AuthContext } from "../Provider/AuthProvider";
 
 const AddReview = () => {
+  const {user} = useContext(AuthContext);
   const handleReview = (e) => {
     e.preventDefault();
     const form = e.target;
@@ -11,13 +13,13 @@ const AddReview = () => {
     const rating = form.rating.value;
     const genres = form.genres.value;
     const year = form.year.value;
-    const email = form.email.value;
+  
 
-    const newReview = { photo, name, review, rating, genres, year, email };
+    const newReview = { photo, name, review, rating, genres, year };
     console.log(newReview);
 
     //send data to the server
-    fetch("http://localhost:5000/reviews", {
+    fetch("https://game-review-server-side.vercel.app/reviews", {
       method: "POST",
       headers: {
         "content-type": "application/json",
@@ -143,16 +145,25 @@ const AddReview = () => {
           </div>
         </div>
         {/* form row */}
-        <div>
-          <div className="form-control">
+        <div className="md:flex gap-4">
+        <div className="form-control md:w-1/2">
             <label className="label">
               <span className="label-text">User Email</span>
             </label>
             <label className="input-group">
               <input
-                type="text"
-                name="email"
-                placeholder="user's email address."
+                value={user?.email}
+                className="input input-bordered w-full"
+              />
+            </label>
+          </div>
+          <div className="form-control md:w-1/2">
+            <label className="label">
+              <span className="label-text">User Name</span>
+            </label>
+            <label className="input-group">
+              <input
+                value={user?.displayName}
                 className="input input-bordered w-full"
               />
             </label>

@@ -1,12 +1,26 @@
-import React, { useState } from 'react';
-import { useLoaderData } from 'react-router-dom';
-import ReviewCards from '../components/ReviewCards';
+import  { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 
 const AllReviews = () => {
-  const reviewCards = useLoaderData(); // Data from the server
-  const [displayedReviews, setDisplayedReviews] = useState(reviewCards); // Manage displayed data
-  const [sortOption, setSortOption] = useState(""); // Sorting state
-  const [filterGenre, setFilterGenre] = useState(""); // Filtering state
+  const [reviews, setReviews] = useState([]);
+  const [displayedReviews, setDisplayedReviews] = useState([]);
+  const [sortOption, setSortOption] = useState("");
+  const [filterGenre, setFilterGenre] = useState("");
+
+  useEffect(() => {
+    // Fetch all reviews
+    fetch("https://game-review-server-side.vercel.app/reviews")
+      .then((res) => res.json())
+      .then((data) => {
+        setReviews(data);
+        setDisplayedReviews(data);
+      });
+  }, []);
+
+  useEffect(() => {
+    // Reset displayed reviews when reviews are fetched
+    setDisplayedReviews(reviews);
+  }, [reviews]);
 
   // Handle Sorting
   const handleSort = (option) => {
@@ -31,16 +45,18 @@ const AllReviews = () => {
     setFilterGenre(genre);
 
     if (genre === "") {
-      setDisplayedReviews(reviewCards); // Reset to all reviews
+      setDisplayedReviews(reviews);
     } else {
-      const filteredReviews = reviewCards.filter((review) => review.genres === genre);
+      const filteredReviews = reviews.filter((review) => review.genres === genre);
       setDisplayedReviews(filteredReviews);
     }
   };
 
   return (
-    <div className='mt-12'>
- 
+    <div>
+      <h2 className="text-3xl font-bold my-6 text-center">
+        All Reviews ({reviews.length})
+      </h2>
 
       {/* Sort and Filter Controls */}
       <div className="flex justify-end gap-4 mb-6 w-11/12 mx-auto">
@@ -74,10 +90,31 @@ const AllReviews = () => {
         </select>
       </div>
 
-      {/* Reviews Grid */}
-      <div className="grid grid-cols-1 gap-6 w-11/12 mx-auto">
-        {displayedReviews.map((reviewCard) => (
-          <ReviewCards key={reviewCard._id} reviewCard={reviewCard}></ReviewCards>
+      {/* Review Cards */}
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 w-11/12 mx-auto">
+        {displayedReviews.map((review) => (
+          <div
+            key={review._id}
+            className="card bg-gray-100 shadow-lg p-4 rounded-md"
+          >
+            <img
+              src={review.photo}
+              alt={review.name}
+              className="w-full h-48 object-cover rounded-md"
+            />
+            <h3 className="text-xl font-bold mt-2">{review.name}</h3>
+            <p>
+              <strong>Genre:</strong> {review.genres}
+            </p>
+            <p>
+              <strong>Rating:</strong> {review.rating}/10
+            </p>
+            <Link to={`/review/${review._id}`} >
+              <button className="btn bg-blue-600 text-white mt-4">
+                Explore Details
+              </button>
+            </Link>
+          </div>
         ))}
       </div>
     </div>
