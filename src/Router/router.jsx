@@ -10,16 +10,19 @@ import MyReview from "../Pages/MyReview";
 import WatchList from "../Pages/WatchList";
 import PrivateRoutes from "./PrivateRoutes";
 import ReviewDetails from "../Pages/ReviewDetails";
+import Error from "../Pages/Error";
 
 
 const router = createBrowserRouter([
   {
     path:'/',
     element: <MainLayout></MainLayout>,
+    errorElement: <Error></Error>,
     children:[
       {
         path:'/',
-        element: <Home></Home>
+        element: <Home></Home>,
+      
       },
       {
         path:'allreviews',

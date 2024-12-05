@@ -12,7 +12,7 @@ const Register = () => {
   const [success, setSuccess] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
   const [showPassword, setShowPassword] = useState(false);
-  const { createUser, signInWithGoogle, updateUserProfile } =
+  const { createUser, signInWithGoogle, profileUp, setUser } =
     useContext(AuthContext);
   const navigate = useNavigate();
 
@@ -39,7 +39,9 @@ const Register = () => {
       .then((result) => {
         const loggedInUser = result.user;
         console.log(loggedInUser);
-
+        setUser(loggedInUser)
+        profileUp({displayName: name,photoURL : photo})
+        setUser({displayName: name,photoURL : photo})
         navigate("/");
 
         const displayName = loggedInUser.displayName || "User";
@@ -48,13 +50,9 @@ const Register = () => {
         e.target.reset();
         setSuccess(true);
 
-        updateUserProfile({ displayName: name, photoURL: photo })
-          .then(() => {
-            navigate("/");
-          })
-          .catch((error) => {
-            console.log(error);
-          });
+       
+
+       
       })
       .catch((error) => {
         console.log("ERROR", error.message);
