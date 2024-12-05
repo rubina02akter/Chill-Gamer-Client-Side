@@ -1,13 +1,12 @@
 
-import { useLoaderData } from 'react-router-dom';
+
 import Slider from '../components/Slider';
 import { useEffect, useState } from 'react';
 import HomeCards from '../components/HomeCards';
 
 const Home = () => {
-  const data = useLoaderData();
+
   const[cards, setCards] = useState([]);
-  const [ratings, setRatings] = useState()
 
   useEffect(() => {
     fetch("https://game-review-server-side.vercel.app/highestRated")

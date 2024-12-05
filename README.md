@@ -4,6 +4,9 @@ Welcome to **Chill Gamer**, a user-friendly platform for exploring and sharing g
 
 ## 🌐 [Live Site URL](#)  
 
+firebase : https://game-review-ad6c5.web.app/
+vercel : https://game-review-server-side.vercel.app/
+
 ---
 
 ## 🚀 Features  
