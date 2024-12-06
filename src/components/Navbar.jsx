@@ -1,53 +1,67 @@
 import userIcon from "../../src/assets/icons/user.png";
 import { Link, NavLink } from "react-router-dom";
-import logo from '../../src/assets/icons/logo-2.png'
-import { useContext } from "react";
+import logo from "../../src/assets/icons/logo-2.png";
+import { useContext, useState, useEffect } from "react";
 import { AuthContext } from "../Provider/AuthProvider";
-
+import { FaMoon, FaSun } from "react-icons/fa";
 
 const Navbar = () => {
+  const { user, signOutUser } = useContext(AuthContext);
+  const [darkMode, setDarkMode] = useState(false);
 
-  const{user, signOutUser} = useContext(AuthContext)
- 
-  
+  // Toggle dark mode
+  const toggleTheme = () => {
+    setDarkMode(!darkMode);
+    document.documentElement.classList.toggle("dark");
+  };
+
+  // Persist theme on reload
+  useEffect(() => {
+    const savedTheme = localStorage.getItem("theme");
+    if (savedTheme === "dark") {
+      setDarkMode(true);
+      document.documentElement.classList.add("dark");
+    }
+  }, []);
+
+  useEffect(() => {
+    localStorage.setItem("theme", darkMode ? "dark" : "light");
+  }, [darkMode]);
+
   const links = (
     <>
       <li>
-       <NavLink to='/'>Home</NavLink>
+        <NavLink to="/">Home</NavLink>
       </li>
       <li>
-       <NavLink to='/allreviews'>All Reviews</NavLink>
+        <NavLink to="/allreviews">All Reviews</NavLink>
       </li>
-     {
-      user && (
+      {user && (
         <>
-         <li>
-       <NavLink to='/addReview'>Add Review</NavLink>
-      </li>
-     
-      <li>
-       <NavLink to='/myReviews'>My Review</NavLink>
-      </li>
-      <li>
-       <NavLink to='/watchlist'>Game WatchList</NavLink>
-      </li>
-      
+          <li>
+            <NavLink to="/addReview">Add Review</NavLink>
+          </li>
+          <li>
+            <NavLink to="/myReviews">My Review</NavLink>
+          </li>
+          <li>
+            <NavLink to="/watchlist">Game WatchList</NavLink>
+          </li>
         </>
-      )
-     }
+      )}
     </>
   );
 
   const handleSignOut = () => {
     signOutUser()
       .then(() => {
-        console.log("signout successfully");
+        console.log("Signout successfully");
       })
       .catch((error) => console.log("ERROR", error.message));
   };
 
   return (
-    <div className="navbar bg-base-100 mt-6">
+    <div className="navbar bg-base-100 dark:bg-gray-900 text-gray-900 dark:text-gray-100 mt-6">
       <div className="navbar-start">
         <div className="dropdown">
           <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -76,16 +90,18 @@ const Navbar = () => {
         <img className="md:w-12 md:h-12 h-8 rounded-full w-8" src={logo} alt="logo" />
       </div>
       <div className="navbar-center hidden lg:flex">
-        <ul className="menu menu-horizontal px-1 space-x-3">
-          {links}
-          </ul>
+        <ul className="menu menu-horizontal px-1 space-x-3">{links}</ul>
       </div>
       <div className="navbar-end">
+        <button
+          onClick={toggleTheme}
+          className="btn bg-none rounded-full mr-2"
+        >
+          {darkMode ? <FaSun className="text-yellow-500" /> : <FaMoon />}
+        </button>
         <div>
           {user && user?.email ? (
-            <div className="flex mr-3 font-bold tooltip" data-tip={user?.displayName
-            }>
-             
+            <div className="flex mr-3 font-bold tooltip" data-tip={user?.displayName}>
               <img
                 className="w-12 h-12 rounded-full object-cover mr-10 md:mr-0"
                 src={user?.photoURL}
@@ -96,13 +112,10 @@ const Navbar = () => {
             <img src={userIcon} alt="user" />
           )}
         </div>
-
         {user ? (
-          <>
-            <a onClick={handleSignOut} className="btn btn-neutral">
-              Log out
-            </a>
-          </>
+          <a onClick={handleSignOut} className="btn btn-neutral">
+            Log out
+          </a>
         ) : (
           <Link className="btn btn-outline ml-3" to="/login">
             Log in

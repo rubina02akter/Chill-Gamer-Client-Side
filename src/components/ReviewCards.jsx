@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
+import Bg from '../../src/assets/images/gamingImg.jpg';
 
 const ReviewCards = () => {
   const { id } = useParams(); 
@@ -22,10 +23,13 @@ const ReviewCards = () => {
   console.log(detail || "No details available");
 
   return (
-    <div>
+    <div
+    className="bg-cover bg-center w-full h-full"
+    style={{ backgroundImage: `url(${Bg})` }}
+  >
       {detail ? (
-        <div className="flex justify-center">
-          <div className="grid m-12">
+        <div className="flex justify-start text-white">
+          <div className="grid m-12 border border-white p-6 bg-gradient-to-r from-gray-700 to-gray-900">
             <div className=" rounded-xl">
               <img src={photo} alt="game" className="w-[600px] h-[350px] object-cover  rounded-xl" />
             </div>

@@ -2,22 +2,22 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 
 const ReviewDetails = () => {
-  const { id } = useParams(); // Destructure 'id' from useParams
-  const [detail, setDetail] = useState(null); // Initialize state with null
+  const { id } = useParams(); 
+  const [detail, setDetail] = useState(null); 
 
   useEffect(() => {
     fetch("https://game-review-server-side.vercel.app/reviews")
       .then((res) => res.json())
       .then((data) => {
-        // Find the review based on 'id'
+     
         const find = data.find((d) => d._id === id);
         setDetail(find);
       })
       .catch((error) => console.error("Error fetching data:", error));
-  }, [id]); // Add 'id' as a dependency to re-run effect when the 'id' changes
+  }, [id]); 
 
-  // Destructure the details object to extract individual properties if available
-  const { name, description, photo, rating, genres, email } = detail || {}; // Safe destructuring with fallback to an empty object
+  
+  const { name, description, photo, rating, genres, email } = detail || {}; 
 
   console.log(detail || "No details available");
 
