@@ -1,30 +1,38 @@
 import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../Provider/AuthProvider";
-
+import MyReviewCard from "../components/MyReviewCard";
 
 const MyReview = () => {
-  const {user} = useContext(AuthContext);
+  const { user } = useContext(AuthContext);
+  const [emails, setEmails] = useState([]);
 
-  const[emails,setEmails] = useState()
+  console.log(user.email);
 
-  console.log(setEmails);
+  useEffect(() => {
+    if (user.email) {
+      const data = async () => {
+        const url = `https://game-review-server-side.vercel.app/myReviews?email=${user.email}`;
+        const res = await fetch(url);
+        const value = await res.json();
+        setEmails(value);
+      };
+      data();
+    }
+  }, [user?.email]);
 
-  useEffect(()=>{
-    fetch("https://game-review-server-side.vercel.app/reviews")
-    .then(res=>res.json())
-    .then(data=>{
-      console.log(data)
-      const emailFind = data.filter((d)=>d.name == user.displayName)
-   console.log(emailFind);
-  
-    })
-  },[])
+  console.log(emails);
 
-console.log(emails);
+  const {name,photo}  = emails;
 
   return (
     <div>
-    <h2 className="text-center">data length :</h2>
+      <h2 className="text-center">Data length: {emails.length}</h2>
+
+      <div>
+       {
+        emails.map(e=><MyReviewCard e={e}></MyReviewCard>)
+       }
+      </div>
     </div>
   );
 };

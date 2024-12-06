@@ -1,0 +1,75 @@
+
+
+const MyReviewCard = ({ e }) => {
+  const { photo, name, review, rating, genres, year, email } = e;
+
+  return (
+    <div className="overflow-x-auto px-4 py-6 sm:px-6 lg:px-8">
+      <table className="min-w-full table-auto bg-white border-collapse shadow-lg rounded-lg overflow-hidden">
+        {/* Table Head (Hidden on small screens) */}
+        <thead className="bg-gray-100 text-gray-600 hidden md:table-header-group">
+          <tr>
+            <th className="py-3 px-4 text-left font-semibold">No</th>
+            <th className="py-3 px-4 text-left font-semibold">Name</th>
+            <th className="py-3 px-4 text-left font-semibold">Rating</th>
+            <th className="py-3 px-4 text-left font-semibold">Category</th>
+            <th className="py-3 px-4 text-left font-semibold">Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          {/* Row */}
+          <tr className="border-b hover:bg-gray-50 md:table-row block mb-4">
+            {/* No column */}
+            <td className="py-4 px-4 text-sm text-gray-800 md:table-cell block">
+              <span className="md:hidden font-bold">No: </span>
+              {/* You need to define the 'length' value */}
+              1
+            </td>
+
+            {/* Name column */}
+            <td className="py-4 px-4 text-sm text-gray-800 md:table-cell block">
+              <span className="md:hidden font-bold">Name: </span>
+              <div className="flex items-center gap-3">
+                <div className="avatar">
+                  <div className="mask mask-squircle h-12 w-12">
+                    <img
+                      src={photo}
+                      alt={`${name}'s Avatar`}
+                      className="object-cover w-full h-full"
+                    />
+                  </div>
+                </div>
+                <div>
+                  <div className="font-bold text-gray-900">{name}</div>
+                  <div className="text-sm text-gray-500">{email}</div>
+                </div>
+              </div>
+            </td>
+
+            {/* Rating column */}
+            <td className="py-4 px-4 text-sm text-gray-800 md:table-cell block">
+              <span className="md:hidden font-bold">Rating: </span>
+              <span className="badge badge-ghost badge-sm">⭐ {rating}</span>
+            </td>
+
+            {/* Category column */}
+            <td className="py-4 px-4 text-sm text-gray-800 md:table-cell block">
+              <span className="md:hidden font-bold">Category: </span>
+              {genres}
+            </td>
+
+            {/* Actions column */}
+            <td className="py-4 px-4 text-sm text-gray-800 md:table-cell block">
+              <div className="flex flex-wrap gap-2">
+                <button className="btn btn-primary btn-sm">Update</button>
+                <button className="btn btn-error btn-sm">Delete</button>
+              </div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  );
+};
+
+export default MyReviewCard;

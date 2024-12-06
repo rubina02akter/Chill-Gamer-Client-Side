@@ -61,7 +61,7 @@ const Navbar = () => {
   };
 
   return (
-    <div className="navbar bg-base-100 dark:bg-gray-900 text-gray-900 dark:text-gray-100 mt-6">
+    <div className="navbar bg-base-100 dark:bg-gray-900 text-gray-900 dark:text-gray-100 pt-6">
       <div className="navbar-start">
         <div className="dropdown">
           <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -100,7 +100,7 @@ const Navbar = () => {
           {darkMode ? <FaSun className="text-yellow-500" /> : <FaMoon />}
         </button>
         <div>
-          {user && user?.email ? (
+          {user ?(
             <div className="flex mr-3 font-bold tooltip" data-tip={user?.displayName}>
               <img
                 className="w-12 h-12 rounded-full object-cover mr-10 md:mr-0"

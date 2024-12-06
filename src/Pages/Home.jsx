@@ -1,6 +1,7 @@
 import Slider from "../components/Slider";
 import { useEffect, useState } from "react";
 import HomeCards from "../components/HomeCards";
+import Section from "../components/Section";
 
 const Home = () => {
   const [cards, setCards] = useState([]);
@@ -23,6 +24,8 @@ const Home = () => {
           <HomeCards key={card._id} card={card}></HomeCards>
         ))}
       </div>
+
+      <Section></Section>
     </div>
   );
 };

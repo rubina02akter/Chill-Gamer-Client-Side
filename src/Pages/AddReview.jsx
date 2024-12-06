@@ -2,6 +2,7 @@ import  { useContext } from "react";
 import Swal from "sweetalert2";
 import { AuthContext } from "../Provider/AuthProvider";
 
+
 const AddReview = () => {
   const {user} = useContext(AuthContext);
   const handleReview = (e) => {
@@ -13,9 +14,10 @@ const AddReview = () => {
     const rating = form.rating.value;
     const genres = form.genres.value;
     const year = form.year.value;
+    const email = form.email.value;
   
 
-    const newReview = { photo, name, review, rating, genres, year };
+    const newReview = { photo, name, review, rating, genres, year,email };
     console.log(newReview);
 
     //send data to the server
@@ -43,6 +45,8 @@ const AddReview = () => {
   };
 
   return (
+    <div>
+
     <div className=" p-6 md:p-16">
       <h2 className="text-3xl font-extrabold">Add Review</h2>
       <form onSubmit={handleReview} className="space-y-8">
@@ -152,6 +156,7 @@ const AddReview = () => {
             </label>
             <label className="input-group">
               <input
+              name="email"
                 value={user?.email}
                 className="input input-bordered w-full"
               />
@@ -176,6 +181,7 @@ const AddReview = () => {
           className="btn btn-block bg-green-600 text-white text-lg"
         />
       </form>
+    </div>
     </div>
   );
 };

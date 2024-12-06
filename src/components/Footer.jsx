@@ -9,6 +9,7 @@ import footer2 from "../../src/assets/images/undraw_personal_information_re_vw8a
 
 const Footer = () => {
   return (
+    
     <div className="bg-base-200 dark:bg-gray-800 py-16 text-gray-900 dark:text-gray-100">
       <div className="flex flex-col lg:flex-row justify-between w-10/12 mx-auto">
         <div className="flex justify-center">
