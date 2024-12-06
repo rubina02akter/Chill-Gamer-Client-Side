@@ -53,7 +53,7 @@ const AllReviews = () => {
   };
 
   return (
-    <div>
+    <div className='pb-12'>
       <h2 className="text-3xl font-bold my-6 text-center">
         All Reviews ({reviews.length})
       </h2>

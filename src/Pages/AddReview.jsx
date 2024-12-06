@@ -35,7 +35,7 @@ const AddReview = () => {
           console.log("successfully added");
           Swal.fire({
             title: "Success!",
-            text: "Coffee added successfully",
+            text: "Review added successfully",
             icon: "success",
             confirmButtonText: "Ok",
           });

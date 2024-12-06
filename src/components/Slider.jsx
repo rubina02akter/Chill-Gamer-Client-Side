@@ -30,7 +30,7 @@ export default function Slider() {
         {`
           .swiper {
             width: 100%;
-            height: 400px;
+            height: 450px;
             background: #000;
             display: flex;
             justify-content: center;

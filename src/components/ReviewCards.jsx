@@ -18,7 +18,7 @@ const ReviewCards = () => {
   }, [id]); 
 
   
-  const { name, description, photo, rating, genres, email } = detail || {}; 
+  const { name, review, photo, rating, genres, email } = detail || {}; 
 
   console.log(detail || "No details available");
 
@@ -28,15 +28,15 @@ const ReviewCards = () => {
     style={{ backgroundImage: `url(${Bg})` }}
   >
       {detail ? (
-        <div className="flex justify-start text-white">
-          <div className="grid m-12 border border-white p-6 bg-gradient-to-r from-gray-700 to-gray-900">
+        <div className="flex justify-start text-white lg:w-7/12 md:w-8/12 w-full">
+          <div className="grid m-12 border border-white p-6 bg-gradient-to-r from-gray-700 to-gray-900 rounded-xl">
             <div className=" rounded-xl">
               <img src={photo} alt="game" className="w-[600px] h-[350px] object-cover  rounded-xl" />
             </div>
 
-            <div className=" rounded-xl">
-              <h2 className="">Game Title : {name}</h2>
-              <p> Review : {description}</p>
+            <div className=" rounded-xl space-y-2 font-thin text-xs">
+              <h2 className="font-thin text-lg mt-2">{review}</h2>
+              <p>Game Title : {name} </p>
               <p> Rating : {rating}</p>
               <p>Genre : {genres}</p>
               <p> Email : {email}</p>
