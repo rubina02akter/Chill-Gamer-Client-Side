@@ -1,12 +1,53 @@
-import React from 'react';
+import { useEffect, useState } from "react";
+import {  useParams } from "react-router-dom";
 
 const UpdateReview = () => {
-  return (
-    <div className=" p-6 md:p-16">
-      <h2 className="text-3xl font-extrabold">Update Review</h2>
-      <form className="space-y-8" >
+  const { id } = useParams();
+  const [review, setReview] = useState(null);
 
-        {/* form Game Cover Image and Game Title row */}
+  // Fetch the existing review details to prefill the form
+  useEffect(() => {
+    fetch(`https://game-review-server-side.vercel.app/reviews/${id}`)
+      .then((res) => res.json())
+      .then((data) => setReview(data));
+  }, [id]);
+
+  const handleUpdate = (e) => {
+    e.preventDefault();
+    const form = e.target;
+    const photo = form.photo.value;
+    const name = form.name.value;
+    const review = form.review.value;
+    const rating = form.rating.value;
+    const genres = form.genres.value;
+    const year = form.year.value;
+    const email = form.email.value;
+    const updatedReview = { photo, name, review, rating, genres, year, email };
+
+    // API call to update the review
+    fetch(`https://game-review-server-side.vercel.app/myReviews/${id}`, {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(updatedReview),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        console.log("Update successful:", data);
+        if (data.insertedId) {
+          console.log("successfully added");
+        }
+      });
+  };
+
+  if (!review) return <div>Loading...</div>;
+
+  return (
+    <div className="p-6 md:p-16">
+      <h2 className="text-3xl font-extrabold">Update Review</h2>
+      <form className="space-y-8" onSubmit={handleUpdate}>
+        {/* Prefill form fields with existing data */}
         <div className="md:flex gap-4">
           <div className="form-control md:w-1/2">
             <label className="label">
@@ -16,12 +57,11 @@ const UpdateReview = () => {
               <input
                 type="text"
                 name="photo"
-                placeholder="URL for the game cover"
+                defaultValue={review.photo}
                 className="input input-bordered w-full"
               />
             </label>
           </div>
-
           <div className="form-control md:w-1/2">
             <label className="label">
               <span className="label-text">Game Title</span>
@@ -30,13 +70,12 @@ const UpdateReview = () => {
               <input
                 type="text"
                 name="name"
-                placeholder="Game Title"
+                defaultValue={review.name}
                 className="input input-bordered w-full"
               />
             </label>
           </div>
         </div>
-        {/* form Review Description and Rating row */}
         <div className="md:flex gap-4">
           <div className="form-control md:w-1/2">
             <label className="label">
@@ -46,12 +85,11 @@ const UpdateReview = () => {
               <input
                 type="text"
                 name="review"
-                placeholder="Review Description"
+                defaultValue={review.review}
                 className="input input-bordered w-full"
               />
             </label>
           </div>
-
           <div className="form-control md:w-1/2">
             <label className="label">
               <span className="label-text">Rating</span>
@@ -59,26 +97,23 @@ const UpdateReview = () => {
             <input
               type="number"
               name="rating"
-              placeholder="Provide a rating (e.g., 1-10)"
+              defaultValue={review.rating}
               min="1"
               max="10"
-              step="1"
               className="input input-bordered w-full"
-              required
             />
           </div>
         </div>
-        {/* form Publishing year and genre row */}
         <div className="md:flex gap-4">
           <div className="form-control md:w-1/2">
             <label className="label">
-              <span className="label-text">Publishing year</span>
+              <span className="label-text">Publishing Year</span>
             </label>
             <label className="input-group">
               <input
                 type="text"
                 name="year"
-                placeholder="Publishing year"
+                defaultValue={review.year}
                 className="input input-bordered w-full"
               />
             </label>
@@ -89,12 +124,9 @@ const UpdateReview = () => {
             </label>
             <select
               name="genres"
-              className="select select-bordered w-full text-gray-400"
-              required
+              defaultValue={review.genres}
+              className="select select-bordered w-full"
             >
-              <option value="" disabled selected>
-                Select one (e.g., Action, RPG, Adventure)
-              </option>
               <option value="action">Action</option>
               <option value="rpg">RPG</option>
               <option value="adventure">Adventure</option>
@@ -103,7 +135,6 @@ const UpdateReview = () => {
             </select>
           </div>
         </div>
-        {/* form row */}
         <div>
           <div className="form-control">
             <label className="label">
@@ -113,18 +144,22 @@ const UpdateReview = () => {
               <input
                 type="text"
                 name="email"
-                placeholder="user's email address."
+                defaultValue={review.email}
                 className="input input-bordered w-full"
               />
             </label>
           </div>
         </div>
-
-        <input type="submit" value="Update Review" className="btn btn-block bg-green-600 text-white text-lg"/>
+        
+          <input
+            type="submit"
+            value="Update Review"
+            className="btn btn-block bg-green-600 text-white text-lg"
+          />
+       
       </form>
     </div>
   );
 };
-
 
 export default UpdateReview;

@@ -1,7 +1,46 @@
+import { Link } from "react-router-dom";
+import Swal from "sweetalert2";
 
+const MyReviewCard = ({ e,emails, setEmails }) => {
+  const { photo, name, review, rating, genres, year, email, _id } = e;
 
-const MyReviewCard = ({ e }) => {
-  const { photo, name, review, rating, genres, year, email } = e;
+  const handleDelete = (_id) => {
+    Swal.fire({
+      title: "Are you sure?",
+      text: "You won't be able to revert this!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, delete it!",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        fetch(
+         `https://game-review-server-side.vercel.app/myReviews/${_id}`,
+          {
+            method: "DELETE",
+          }
+        )
+          .then((res) => res.json())
+          .then((data) => {
+            // console.log(data);
+            if (data.deletedCount) {
+              Swal.fire({
+                title: "Deleted!",
+                text: "Your file has been deleted.",
+                icon: "success",
+              });
+
+              // update the loaded card state
+              const remainingCards = emails.filter(
+                (card) => card._id !== _id
+              );
+              setEmails(remainingCards);
+            }
+          });
+      }
+    });
+  };
 
   return (
     <div className="overflow-x-auto px-4 py-6 sm:px-6 lg:px-8">
@@ -22,8 +61,7 @@ const MyReviewCard = ({ e }) => {
             {/* No column */}
             <td className="py-4 px-4 text-sm text-gray-800 md:table-cell block">
               <span className="md:hidden font-bold">No: </span>
-              {/* You need to define the 'length' value */}
-              1
+              {/* You need to define the 'length' value */}1
             </td>
 
             {/* Name column */}
@@ -61,8 +99,18 @@ const MyReviewCard = ({ e }) => {
             {/* Actions column */}
             <td className="py-4 px-4 text-sm text-gray-800 md:table-cell block">
               <div className="flex flex-wrap gap-2">
-                <button className="btn btn-primary btn-sm">Update</button>
-                <button className="btn btn-error btn-sm">Delete</button>
+                <Link
+                  to={`/updateReview/${_id}`}
+                  className="btn btn-primary btn-sm"
+                >
+                  Update
+                </Link>
+                <button
+                  onClick={() => handleDelete(_id)}
+                  className="btn btn-error btn-sm"
+                >
+                  Delete
+                </button>
               </div>
             </td>
           </tr>

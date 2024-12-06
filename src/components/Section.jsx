@@ -5,7 +5,7 @@ import img5 from "../../src/assets/images/sectionBg.png";
 
 const Section = () => {
   return (
-    <div className="w-11/12 mx-auto flex flex-col md:flex-row lg:flex-row gap-5">
+    <div className="w-11/12 mx-auto flex flex-col md:flex-row lg:flex-row gap-5 text-black">
       <div className="md:w-1/2 w-full">
         <img src={img5} alt="" className="h-[330px] rounded-xl" />
       </div>

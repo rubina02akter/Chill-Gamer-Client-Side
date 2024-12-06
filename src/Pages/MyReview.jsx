@@ -22,7 +22,6 @@ const MyReview = () => {
 
   console.log(emails);
 
-  const {name,photo}  = emails;
 
   return (
     <div>

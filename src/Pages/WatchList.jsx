@@ -1,8 +1,11 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
+import { AuthContext } from "../Provider/AuthProvider";
 
 const WatchList = () => {
+  const{user} = useContext(AuthContext);
   const [watchLists, setWatchLists] = useState([]);
 
+  
   useEffect(() => {
     fetch("https://game-review-server-side.vercel.app/watchlist")
       .then((res) => res.json())

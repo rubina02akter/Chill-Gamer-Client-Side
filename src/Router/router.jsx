@@ -43,8 +43,10 @@ const router = createBrowserRouter([
         element: <PrivateRoutes><AddReview></AddReview></PrivateRoutes>
       },
       {
-        path:'updateReview',
-        element: <UpdateReview></UpdateReview>
+        path:'updateReview/:id',
+        element: <UpdateReview></UpdateReview>,
+        loader: ({ params }) =>
+          fetch(`https://game-review-server-side.vercel.app/reviews/${params.id}`)
       },
       {
         path:'myReviews',
