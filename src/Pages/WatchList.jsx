@@ -35,7 +35,7 @@ const WatchList = () => {
             <th className="py-3 px-4 text-left font-semibold">No</th>
             <th className="py-3 px-4 text-left font-semibold">Name</th>
             <th className="py-3 px-4 text-left font-semibold">Rating</th>
-            <th className="py-3 px-4 text-left font-semibold">Category</th>
+            <th className="py-3 px-4 text-left font-semibold">Genres</th>
             <th className="py-3 px-4 text-left font-semibold">Actions</th>
           </tr>
         </thead>
@@ -43,7 +43,24 @@ const WatchList = () => {
           {watchLists.map((item, index) => (
             <tr key={item._id} className="border-b hover:bg-gray-50">
               <td className="py-4 px-4">{index + 1}</td>
-              <td className="py-4 px-4">{item.name}</td>
+              <td className="py-4 px-4 text-sm text-gray-800 md:table-cell block">
+              <span className="md:hidden font-bold">Name: </span>
+              <div className="flex items-center gap-3">
+                <div className="avatar">
+                  <div className="mask mask-squircle h-12 w-12">
+                    <img
+                      src={item.photo}
+                      alt={`${item.name}'s Avatar`}
+                      className="object-cover w-full h-full"
+                    />
+                  </div>
+                </div>
+                <div>
+                  <div className="font-bold text-gray-900">{item.name}</div>
+                  <div className="text-sm text-gray-500">{user.email}</div>
+                </div>
+              </div>
+            </td>
               <td className="py-4 px-4">⭐ {item.rating}</td>
               <td className="py-4 px-4">{item.genres}</td>
               <td className="py-4 px-4">
