@@ -56,7 +56,7 @@ const AllReviews = () => {
 
   return (
     <div className='pb-12 '>
-      <h2 className="text-3xl font-bold my-6 text-center">
+      <h2 className="text-3xl font-bold py-6 text-center">
         All Reviews ({reviews.length})
       </h2>
 
@@ -66,7 +66,7 @@ const AllReviews = () => {
         <select
           onChange={(e) => handleSort(e.target.value)}
           value={sortOption}
-          className="select select-bordered w-36"
+          className="select select-bordered w-36 "
         >
           <option value="" disabled>
             Sort by
@@ -112,7 +112,7 @@ const AllReviews = () => {
               <strong>Rating:</strong> {review.rating}/5
             </p>
             <Link to={`/review/${review._id}`} >
-              <button className="btn bg-blue-600 text-white mt-4">
+              <button className="btn btn-block bg-gradient-to-r from-red-900 to-red-500 text-white mt-4">
                 Explore Details
               </button>
             </Link>

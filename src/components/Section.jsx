@@ -1,5 +1,5 @@
 
-import img5 from "../../src/assets/images/sectionBg.png";
+import img5 from "../../src/assets/images/Best-PC-Games-2024.jpg";
 
 const Section = () => {
   return (

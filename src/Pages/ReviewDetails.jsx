@@ -1,6 +1,5 @@
 import { useContext, useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import icon from '../../src/assets/icons/logo-1.png';
 import Swal from "sweetalert2";
 import { AuthContext } from "../Provider/AuthProvider";
 
@@ -63,21 +62,21 @@ const ReviewDetails = () => {
     <div>
       {detail ? (
         <div className="py-12 flex justify-center ">
-          <div className="flex flex-col lg:flex-row  gap-8 m-12">
+          <div className="flex flex-col lg:flex-row  gap-4 m-12">
             <div className=" rounded-xl">
               <img src={photo} alt="game" className="w-[600px] h-[350px] object-cover  rounded-xl" />
             </div>
 
-            <div className=" rounded-xl  text-sm space-y-3 ">
+            <div className=" rounded-xl  text-sm space-y-3">
             <h2 className="font-bold text-lg mt-2 mb-6">{review}</h2>
             <p>Game Title : {name} </p>
               <p> Rating : {rating}</p>
               <p>Genre : {genres}</p>
               <p> Email : {email}</p>
-              <button className="btn btn-success text-white w-48"
+              <button className="btn w-48 bg-gradient-to-r from-red-900 to-red-700 text-white"
               onClick={handleWatchList}
               >Add to WatchList</button>
-                 <img src={icon} alt="" className="w-20 h-20 rounded-full" />
+ 
             </div>
           
           </div>

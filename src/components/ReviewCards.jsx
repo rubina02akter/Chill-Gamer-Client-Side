@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
-import Bg from '../../src/assets/images/gamingImg.jpg';
+import Bg from '../../src/assets/images/4884841.jpg';
 
 const ReviewCards = () => {
   const { id } = useParams(); 
@@ -28,7 +28,7 @@ const ReviewCards = () => {
     style={{ backgroundImage: `url(${Bg})` }}
   >
       {detail ? (
-        <div className="flex justify-start text-white lg:w-7/12 md:w-8/12 w-full">
+        <div className="flex justify-center text-white lg:w-7/12 md:w-9/12 mx-auto">
           <div className="grid m-12 border border-white p-6 bg-gradient-to-r from-gray-700 to-gray-900 rounded-xl">
             <div className=" rounded-xl">
               <img src={photo} alt="game" className="w-[600px] h-[350px] object-cover  rounded-xl" />
@@ -40,7 +40,7 @@ const ReviewCards = () => {
               <p> Rating : {rating}</p>
               <p>Genre : {genres}</p>
               <p> Email : {email}</p>
-              <Link className="btn btn-success text-white w-48" to='/'>Go Back</Link>
+              <Link className="btn  bg-gradient-to-r from-blue-900 to-rose-800 text-white btn-block" to='/'>Go Back</Link>
             </div>
           </div>
         </div>

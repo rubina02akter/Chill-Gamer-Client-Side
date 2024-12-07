@@ -116,7 +116,7 @@ const Navbar = () => {
           )}
         </div>
         {user ? (
-          <a onClick={handleSignOut} className="btn btn-success text-white">
+          <a onClick={handleSignOut} className="btn bg-gradient-to-r from-gray-800 to-gray-500 text-white">
             Log out
           </a>
         ) : (

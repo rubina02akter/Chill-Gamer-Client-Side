@@ -1,7 +1,7 @@
 import { FaFacebook, FaTwitter, FaGithub, FaInstagram } from "react-icons/fa";
 import footer from "../../src/assets/images/undraw_video_game_night_8h8m (1).svg";
 import footer2 from "../../src/assets/images/undraw_personal_information_re_vw8a.svg";
-import bg from "../../src/assets/images/footer.jpg";
+import bg from "../../src/assets/images/gamingImg.jpg";
 const Footer = () => {
   return (
     <div>
@@ -81,7 +81,7 @@ const Footer = () => {
                 rel="noopener noreferrer"
                 href="https://github.com/rubina02akter"
               >
-                <FaGithub className="text-3xl text-gray-900 dark:text-gray-100" />
+                <FaGithub className="text-3xl  dark:text-gray-100" />
               </a>
               <a target="_blank" rel="noopener noreferrer" href="#">
                 <FaInstagram className="text-3xl text-red-400 dark:text-red-300" />
