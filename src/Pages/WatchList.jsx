@@ -20,7 +20,7 @@ const WatchList = () => {
     })
       .then((res) => res.json())
       .then((data) => {
-        if (data.deletedCount > 0) {
+        if (data.deletedCount) {
           Swal.fire("Removed!", "Review removed from Watchlist", "success");
           setWatchLists((prev) => prev.filter((item) => item._id !== id));
         }

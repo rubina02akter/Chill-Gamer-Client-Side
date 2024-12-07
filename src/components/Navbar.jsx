@@ -64,7 +64,7 @@ const Navbar = () => {
   };
 
   return (
-    <div className="navbar bg-base-100 dark:bg-gray-900 text-gray-900 dark:text-gray-100 pt-6">
+    <div className="navbar   dark:bg-gray-900 text-gray-900 dark:text-gray-100 pt-6">
       <div className="navbar-start">
         <div className="dropdown">
           <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -98,15 +98,15 @@ const Navbar = () => {
       <div className="navbar-end">
         <button
           onClick={toggleTheme}
-          className="btn bg-none rounded-full mr-2"
+          className="bg-none rounded-full mr-2"
         >
-          {darkMode ? <FaSun className="text-yellow-500" /> : <FaMoon />}
+          {darkMode ? <FaSun className="text-yellow-500 w-8 h-6" /> : <FaMoon className="w-8 h-6"/>}
         </button>
         <div>
           {user ?(
-            <div className="flex mr-3 font-bold tooltip" data-tip={user?.displayName}>
+            <div className="flex mr-1 font-bold tooltip" data-tip={user?.displayName}>
               <img
-                className="w-12 h-12 rounded-full object-cover mr-10 md:mr-0"
+                className="w-8 h-8 md:w-12 md:h-12 rounded-full object-cover "
                 src={user?.photoURL}
                 alt=""
               />
@@ -116,7 +116,7 @@ const Navbar = () => {
           )}
         </div>
         {user ? (
-          <a onClick={handleSignOut} className="btn btn-neutral">
+          <a onClick={handleSignOut} className="btn btn-success text-white">
             Log out
           </a>
         ) : (
