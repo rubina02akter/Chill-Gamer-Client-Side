@@ -1,10 +1,13 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import icon from '../../src/assets/icons/logo-1.png';
+import Swal from "sweetalert2";
+import { AuthContext } from "../Provider/AuthProvider";
 
 const ReviewDetails = () => {
   const { id } = useParams(); 
   const [detail, setDetail] = useState(null); 
+  const{user} = useContext(AuthContext)
 
   useEffect(() => {
     fetch("https://game-review-server-side.vercel.app/reviews")
@@ -20,23 +23,41 @@ const ReviewDetails = () => {
   
   const { name, review, photo, rating, genres, email,year } = detail || {}; 
 
-  console.log(detail || "No details available");
 
 
   const handleWatchList = () => {
-     fetch('https://game-review-server-side.vercel.app/watchlist',{
-      method: 'POST',
+    if (!user) {
+      Swal.fire("Error", "You must be logged in to add to Watchlist", "error");
+      return;
+    }
+  
+    const watchListData = {
+      email: user.email,
+      username: user.displayName,
+      gameId: detail._id,
+      name: detail.name,
+      photo: detail.photo,
+      genres: detail.genres,
+      rating: detail.rating,
+    };
+  
+    fetch("https://game-review-server-side.vercel.app/watchlist", {
+      method: "POST",
       headers: {
-        'content-type': 'application/json',
+        "Content-Type": "application/json",
       },
-      body: JSON.stringify( detail )
-     })
-     .then(res => res.json())
-     .then(data => {
-      console.log(data)
-      
-     })
-  }
+      body: JSON.stringify(watchListData),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.message) {
+          Swal.fire("Error", data.message, "error");
+        } else {
+          Swal.fire("Success", "Added to Watchlist", "success");
+        }
+      });
+  };
+  
 
   return (
     <div>

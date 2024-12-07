@@ -1,13 +1,14 @@
 import userIcon from "../../src/assets/icons/user.png";
 import { Link, NavLink } from "react-router-dom";
 import logo from "../../src/assets/icons/logo-2.png";
-import { useContext, useState, useEffect } from "react";
+import { useContext,  useEffect, useState } from "react";
 import { AuthContext } from "../Provider/AuthProvider";
 import { FaMoon, FaSun } from "react-icons/fa";
 
 const Navbar = () => {
-  const { user, signOutUser } = useContext(AuthContext);
+  const { user, signOutUser} = useContext(AuthContext);
   const [darkMode, setDarkMode] = useState(false);
+  
 
   // Toggle dark mode
   const toggleTheme = () => {
@@ -57,6 +58,7 @@ const Navbar = () => {
     signOutUser()
       .then(() => {
         console.log("Signout successfully");
+        
       })
       .catch((error) => console.log("ERROR", error.message));
   };

@@ -1,11 +1,13 @@
 import  { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 
+
 const AllReviews = () => {
   const [reviews, setReviews] = useState([]);
   const [displayedReviews, setDisplayedReviews] = useState([]);
   const [sortOption, setSortOption] = useState("");
   const [filterGenre, setFilterGenre] = useState("");
+
 
   useEffect(() => {
     // Fetch all reviews
@@ -53,7 +55,7 @@ const AllReviews = () => {
   };
 
   return (
-    <div className='pb-12'>
+    <div className='pb-12 '>
       <h2 className="text-3xl font-bold my-6 text-center">
         All Reviews ({reviews.length})
       </h2>
@@ -107,7 +109,7 @@ const AllReviews = () => {
               <strong>Genre:</strong> {review.genres}
             </p>
             <p>
-              <strong>Rating:</strong> {review.rating}/10
+              <strong>Rating:</strong> {review.rating}/5
             </p>
             <Link to={`/review/${review._id}`} >
               <button className="btn bg-blue-600 text-white mt-4">

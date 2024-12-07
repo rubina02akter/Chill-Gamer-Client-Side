@@ -1,7 +1,10 @@
+import { useContext } from "react";
 import { Link } from "react-router-dom";
 import Swal from "sweetalert2";
+import { AuthContext } from "../Provider/AuthProvider";
 
-const MyReviewCard = ({ e,emails, setEmails }) => {
+const MyReviewCard = ({ e}) => {
+  const{emails, setEmails} = useContext(AuthContext)
   const { photo, name, review, rating, genres, year, email, _id } = e;
 
   const handleDelete = (_id) => {

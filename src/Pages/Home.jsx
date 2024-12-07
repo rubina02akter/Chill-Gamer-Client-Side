@@ -1,17 +1,19 @@
 import Slider from "../components/Slider";
-import { useEffect, useState } from "react";
+import {  useEffect, useState } from "react";
 import HomeCards from "../components/HomeCards";
 import Section from "../components/Section";
 
+
 const Home = () => {
   const [cards, setCards] = useState([]);
+
 
   useEffect(() => {
     fetch("https://game-review-server-side.vercel.app/highestRated")
       .then((res) => res.json())
       .then((data) => {
-        const games = data.sort((a, b) => b.rating - a.rating);
-        setCards(games);
+        // const games = data.sort((a, b) => b.rating - a.rating);
+        setCards(data);
       })
       .catch((error) => console.error("Error fetching data:", error));
   }, []);

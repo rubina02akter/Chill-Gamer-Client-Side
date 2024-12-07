@@ -1,24 +1,36 @@
 import React, { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../Provider/AuthProvider";
+import Swal from "sweetalert2";
 
 const WatchList = () => {
-  const{user} = useContext(AuthContext);
+  const { user } = useContext(AuthContext);
   const [watchLists, setWatchLists] = useState([]);
 
-  
   useEffect(() => {
-    fetch("https://game-review-server-side.vercel.app/watchlist")
+    if (user.email) {
+      fetch(`https://game-review-server-side.vercel.app/watchlist?email=${user.email}`)
+        .then((res) => res.json())
+        .then((data) => setWatchLists(data));
+    }
+  }, [user?.email]);
+
+  const handleRemove = (id) => {
+    fetch(`https://game-review-server-side.vercel.app/watchlist/${id}`, {
+      method: "DELETE",
+    })
       .then((res) => res.json())
       .then((data) => {
-        setWatchLists(data);
+        if (data.deletedCount > 0) {
+          Swal.fire("Removed!", "Review removed from Watchlist", "success");
+          setWatchLists((prev) => prev.filter((item) => item._id !== id));
+        }
       });
-  }, []);
+  };
 
   return (
     <div className="overflow-x-auto px-4 py-6 sm:px-6 lg:px-8">
-      <table className="min-w-full table-auto bg-white border-collapse shadow-lg rounded-lg overflow-hidden">
-        {/* Table Head (Hidden on small screens) */}
-        <thead className="bg-gray-100 text-gray-600 hidden md:table-header-group">
+      <table className="min-w-full table-auto bg-white border-collapse shadow-lg rounded-lg">
+        <thead className="bg-gray-100">
           <tr>
             <th className="py-3 px-4 text-left font-semibold">No</th>
             <th className="py-3 px-4 text-left font-semibold">Name</th>
@@ -28,50 +40,19 @@ const WatchList = () => {
           </tr>
         </thead>
         <tbody>
-          {/* Map through watchLists to create rows */}
           {watchLists.map((item, index) => (
-            <tr key={item._id} className="border-b hover:bg-gray-50 md:table-row block mb-4">
-              {/* No column */}
-              <td className="py-4 px-4 text-sm text-gray-800 md:table-cell block">
-                <span className="md:hidden font-bold">No: </span>
-                {index + 1}
-              </td>
-
-              {/* Name column */}
-              <td className="py-4 px-4 text-sm text-gray-800 md:table-cell block">
-                <span className="md:hidden font-bold">Name: </span>
-                <div className="flex items-center gap-3">
-                  <div className="avatar">
-                    <div className="mask mask-squircle h-12 w-12">
-                      <img
-                        src={item.photo || "https://via.placeholder.com/150"}
-                        alt={`${item.name}'s Avatar`}
-                        className="object-cover w-full h-full"
-                      />
-                    </div>
-                  </div>
-                  <div>
-                    <div className="font-bold text-gray-900">{item.name}</div>
-                    <div className="text-sm text-gray-500">{item.email}</div>
-                  </div>
-                </div>
-              </td>
-
-              {/* Rating column */}
-              <td className="py-4 px-4 text-sm text-gray-800 md:table-cell block">
-                <span className="md:hidden font-bold">Rating: </span>
-                <span className="badge badge-ghost badge-sm">⭐ {item.rating}</span>
-              </td>
-
-              {/* Category column */}
-              <td className="py-4 px-4 text-sm text-gray-800 md:table-cell block">
-                <span className="md:hidden font-bold">Category: </span>
-                {item.genres}
-              </td>
-
-              {/* Actions column */}
-              <td className="py-4 px-4 text-sm text-gray-800 md:table-cell block">
-                
+            <tr key={item._id} className="border-b hover:bg-gray-50">
+              <td className="py-4 px-4">{index + 1}</td>
+              <td className="py-4 px-4">{item.name}</td>
+              <td className="py-4 px-4">⭐ {item.rating}</td>
+              <td className="py-4 px-4">{item.genres}</td>
+              <td className="py-4 px-4">
+                <button
+                  className="btn btn-danger btn-sm"
+                  onClick={() => handleRemove(item._id)}
+                >
+                  Remove
+                </button>
               </td>
             </tr>
           ))}

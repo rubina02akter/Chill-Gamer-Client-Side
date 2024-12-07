@@ -3,10 +3,10 @@ import { Link, useNavigate } from "react-router-dom";
 import { FaEye } from "react-icons/fa";
 import { FaEyeSlash } from "react-icons/fa";
 
-import Swal from "sweetalert2/dist/sweetalert2.js";
 
 import { FcGoogle } from "react-icons/fc";
 import { AuthContext } from "../Provider/AuthProvider";
+import Swal from "sweetalert2";
 
 const Register = () => {
   const [success, setSuccess] = useState(false);
@@ -50,9 +50,6 @@ const Register = () => {
         e.target.reset();
         setSuccess(true);
 
-       
-
-       
       })
       .catch((error) => {
         console.log("ERROR", error.message);

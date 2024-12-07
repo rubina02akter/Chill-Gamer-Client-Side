@@ -1,10 +1,10 @@
-import { useContext, useEffect, useState } from "react";
+import { useContext, useEffect } from "react";
 import { AuthContext } from "../Provider/AuthProvider";
 import MyReviewCard from "../components/MyReviewCard";
 
 const MyReview = () => {
-  const { user } = useContext(AuthContext);
-  const [emails, setEmails] = useState([]);
+  const { user,emails, setEmails } = useContext(AuthContext);
+ 
 
   console.log(user.email);
 
@@ -29,7 +29,7 @@ const MyReview = () => {
 
       <div>
        {
-        emails.map(e=><MyReviewCard e={e}></MyReviewCard>)
+        emails.map(e=><MyReviewCard e={e} ></MyReviewCard>)
        }
       </div>
     </div>
