@@ -43,7 +43,7 @@ vercel : https://game-review-server-side.vercel.app/
 - **Database**: MongoDB  
 - **Authentication**: Firebase  
 - **Hosting**:  
-  - Client-side: Netlify  
+  - Client-side: Firebase  
   - Server-side: Vercel  
 
 ---
@@ -78,7 +78,7 @@ vercel : https://game-review-server-side.vercel.app/
 ## ⚙️ Challenges & Advanced Features  
 
 1. Dark/light theme toggle for a personalized experience.  
-2. Animation integrations using **Lottie React** and **React Awesome Reveal**.  
+2. Animation integrations using **React-simple-typewriter** and **React Awesome reveal**.  
 3. Sorting and filtering reviews for better user interaction.  
 
 ---
