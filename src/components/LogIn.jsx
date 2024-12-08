@@ -66,41 +66,41 @@ const LogIn = () => {
        <title>Log In|Game Review</title>
         <meta name="description" content="Helmet application"></meta>
        </Helmet>
-    <div className="card w-11/12 max-w-lg shrink-0 mx-auto border-black border my-12  rounded-none">
+    <div className="card w-11/12 max-w-lg shrink-0 mx-auto   rounded-none">
         <h2 className="font-semibold text-2xl mt-12 ml-8 text-green-700">Log in here</h2>
-        <form onSubmit={handleLogIn} className="card-body">
-          <div className="form-control">
+        <form onSubmit={handleLogIn} className="card-body ">
+          <div className="form-control ">
             <label className="label">
-              <span className="label-text">Email</span>
+              <span className="label-text text-white">Email</span>
             </label>
             <input
               type="email"
               
               name="email"
               placeholder="email"
-              className="input border-b-black rounded-none"
+              className="input border-b-black rounded-lg"
               required
             />
           </div>
           <div className="form-control">
             <label className="label">
-              <span className="label-text">Password</span>
+              <span className="label-text text-white">Password</span>
             </label>
             <input
               type="password"
               name="password"
               placeholder="password"
-              className="input  border-b-black rounded-none"
+              className="input  border-b-black rounded-lg"
               required
             />
             <label className="label">
-              <NavLink  className="label-text-alt link link-hover">
+              <NavLink  className="label-text-alt link link-hover text-white">
                 Forgot password?
               </NavLink>
             </label>
           </div>
           <div className="form-control mt-6">
-            <button className="btn bg-green-600 text-white text-lg">Login</button>
+            <button className="btn bg-gradient-to-r from-green-700 to-green-900 text-white text-lg">Login</button>
           
           </div>
         </form>
@@ -108,15 +108,15 @@ const LogIn = () => {
           success && <p className='text-green-500'>user login successfully</p>
         }
         {
-          error && <p className='text-red-700 text-center'>{error}</p>
+          error && <p className='text-white text-center'>{error}</p>
         }
 
 
-        <p className="text-center font-semibold text-lg mb-6">
+        <p className="text-center font-semibold text-lg mb-6 text-white">
           New to this website? Please <Link to='/register' className="underline text-green-700">Register</Link>
         </p>
         <div className="flex justify-center items-center mb-4 ">
-          <button onClick={handleGoogleSignIn} className="btn btn-outline rounded-none">Google<FcGoogle /></button>
+          <button onClick={handleGoogleSignIn} className="btn btn-outline rounded-none text-white">Google<FcGoogle /></button>
       
         </div>
       </div>

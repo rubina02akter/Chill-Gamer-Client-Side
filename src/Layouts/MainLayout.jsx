@@ -6,6 +6,7 @@ import Footer from '../components/Footer';
 
 const MainLayout = () => {
 
+
   return (
     <div className='font-serif'>
       {/* Sticky Navbar */}
@@ -14,7 +15,7 @@ const MainLayout = () => {
       </div>
   
       {/* Main content with padding to avoid overlap */}
-      <div className="min-h-[calc(100vh-232px)] container mx-auto ">
+      <div className="min-h-[calc(100vh-232px)] container mx-auto bg-gradient-to-r from-blue-950 to-rose-900">
         <Outlet />
       </div>
   

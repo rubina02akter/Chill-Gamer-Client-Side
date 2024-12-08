@@ -88,18 +88,18 @@ const Register = () => {
   });
 
   return (
-    <>
+    <div className="py-6">
     <Helmet>
        <title>Register|Game Review</title>
         <meta name="description" content="Helmet application"></meta>
        </Helmet>
-      <div className="h-12 mx-auto mt-6">
-      <h2 className="font-semibold text-2xl ml-8 text-green-700 text-center">
+      <div className="h-12 mx-auto ">
+      <h2 className="font-semibold text-2xl ml-8 text-white text-center">
          {text}
         </h2>
       </div>
-      <div className="card bg-base-100 w-11/12 max-w-lg shrink-0 mx-auto border-black border  rounded-none mb-12">
-        <h2 className="font-semibold text-2xl mt-12 ml-8 text-green-700">
+      <div className="card bg-base-100 w-11/12 max-w-lg shrink-0 mx-auto border-black border  rounded-none">
+        <h2 className="font-semibold text-2xl mt-12 ml-8 text-rose-800">
         Create new account
         </h2>
         <form onSubmit={handleRegister} className="card-body">
@@ -156,7 +156,7 @@ const Register = () => {
             </button>
           </div>
           <div className="form-control mt-6">
-            <button className="btn bg-green-600 text-white text-lg">Register</button>
+            <button className="btn bg-gradient-to-r from-blue-800 to-rose-800 text-white text-lg">Register</button>
           </div>
         </form>
         {errorMessage && (
@@ -178,7 +178,7 @@ const Register = () => {
           </button>
         </div>
       </div>
-    </>
+    </div>
   );
 };
 

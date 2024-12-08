@@ -1,6 +1,6 @@
 import userIcon from "../../src/assets/icons/user.png";
 import { Link, NavLink, useNavigate } from "react-router-dom";
-import logo from "../../src/assets/icons/logo-1.png";
+import logo from "../../src/assets/icons/icons8-game-64.png";
 import { useContext,  useEffect, useState } from "react";
 import { AuthContext } from "../Provider/AuthProvider";
 import { FaMoon, FaSun } from "react-icons/fa";
@@ -123,7 +123,7 @@ const navigate = useNavigate()
           )}
         </div>
         {user ? (
-          <a onClick={handleSignOut} className="btn bg-gradient-to-r from-gray-800 to-gray-500 text-white">
+          <a onClick={handleSignOut} className="btn bg-gradient-to-r from-blue-950 to-rose-700 text-white">
             Log out
           </a>
         ) : (

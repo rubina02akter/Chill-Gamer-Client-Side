@@ -52,13 +52,13 @@ const UpdateReview = () => {
         <meta name="description" content="Helmet application"></meta>
        </Helmet>
     <div className="p-6 md:p-16">
-      <h2 className="text-3xl font-extrabold">Update Review</h2>
+      <h2 className="text-3xl font-extrabold text-white">Update Review</h2>
       <form className="space-y-8" onSubmit={handleUpdate}>
         {/* Prefill form fields with existing data */}
         <div className="md:flex gap-4">
           <div className="form-control md:w-1/2">
             <label className="label">
-              <span className="label-text">Game Cover Image</span>
+              <span className="label-text text-white">Game Cover Image</span>
             </label>
             <label className="input-group">
               <input
@@ -71,7 +71,7 @@ const UpdateReview = () => {
           </div>
           <div className="form-control md:w-1/2">
             <label className="label">
-              <span className="label-text">Game Title</span>
+              <span className="label-text text-white">Game Title</span>
             </label>
             <label className="input-group">
               <input
@@ -86,7 +86,7 @@ const UpdateReview = () => {
         <div className="md:flex gap-4">
           <div className="form-control md:w-1/2">
             <label className="label">
-              <span className="label-text">Review Description</span>
+              <span className="label-text text-white">Review Description</span>
             </label>
             <label className="input-group">
               <input
@@ -99,7 +99,7 @@ const UpdateReview = () => {
           </div>
           <div className="form-control md:w-1/2">
             <label className="label">
-              <span className="label-text">Rating</span>
+              <span className="label-text text-white">Rating</span>
             </label>
             <input
               type="number"
@@ -114,7 +114,7 @@ const UpdateReview = () => {
         <div className="md:flex gap-4">
           <div className="form-control md:w-1/2">
             <label className="label">
-              <span className="label-text">Publishing Year</span>
+              <span className="label-text text-white">Publishing Year</span>
             </label>
             <label className="input-group">
               <input
@@ -127,7 +127,7 @@ const UpdateReview = () => {
           </div>
           <div className="form-control md:w-1/2">
             <label className="label">
-              <span className="label-text">Genres</span>
+              <span className="label-text text-white">Genres</span>
             </label>
             <select
               name="genres"
@@ -145,7 +145,7 @@ const UpdateReview = () => {
         <div>
           <div className="form-control">
             <label className="label">
-              <span className="label-text">User Email</span>
+              <span className="label-text text-white">User Email</span>
             </label>
             <label className="input-group">
               <input
@@ -161,7 +161,7 @@ const UpdateReview = () => {
           <input
             type="submit"
             value="Update Review"
-            className="btn btn-block bg-green-600 text-white text-lg"
+            className="btn btn-block bg-gradient-to-r from-green-700 to-green-900 text-white text-lg"
           />
        
       </form>

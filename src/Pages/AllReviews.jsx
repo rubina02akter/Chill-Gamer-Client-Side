@@ -119,7 +119,7 @@ const AllReviews = () => {
               <strong>Year:</strong> {review.year}
             </p>
             <Link to={`/review/${review._id}`} >
-              <button className="btn btn-block bg-gradient-to-r from-red-900 to-red-600 text-white mt-4">
+              <button className="btn btn-block bg-gradient-to-r from-rose-800 to-blue-800 text-white mt-4">
                 Explore Details
               </button>
             </Link>

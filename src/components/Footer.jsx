@@ -4,7 +4,7 @@ import footer2 from "../../src/assets/images/undraw_personal_information_re_vw8a
 import bg from "../../src/assets/images/gamingImg.jpg";
 const Footer = () => {
   return (
-    <div>
+    <div className="">
       {/* Top Colored Sections */}
       <div className="grid grid-cols-3">
         <div className="border-4 border-green-700"></div>
