@@ -58,7 +58,11 @@ const navigate = useNavigate()
   const handleSignOut = () => {
     signOutUser()
       .then(() => {
-        toast("Signout successfully");
+        toast.success(' Log Out Successfully!', {
+          position: "top-right",
+          autoClose: 2000,
+         
+          });
         navigate('/')
       })
       .catch((error) => console.log("ERROR", error.message));
