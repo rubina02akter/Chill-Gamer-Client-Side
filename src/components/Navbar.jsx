@@ -65,7 +65,7 @@ const navigate = useNavigate()
   };
 
   return (
-    <div className="navbar   dark:bg-gray-900 text-gray-900 dark:text-gray-100 pt-6">
+    <div className="navbar text-white  dark:bg-gray-900  dark:text-gray-100 pt-6">
       <div className="navbar-start">
         <div className="dropdown">
           <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">

@@ -72,7 +72,7 @@ const WatchList = () => {
               <td className="py-4 px-4">{item.genres}</td>
               <td className="py-4 px-4">
                 <button
-                  className="btn btn-danger btn-sm"
+                  className="btn  bg-gradient-to-r from-red-600 to-red-800 text-white btn-sm"
                   onClick={() => handleRemove(item._id)}
                 >
                   Remove

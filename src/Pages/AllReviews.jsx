@@ -65,7 +65,7 @@ const AllReviews = () => {
       
 
       {/* Sort and Filter Controls */}
-      <div className="flex justify-end gap-4 mb-6 w-11/12 mx-auto mt-6">
+      <div className="flex justify-end gap-4 mb-6 w-11/12 mx-auto pt-6 ">
         {/* Sort Dropdown */}
         <select
           onChange={(e) => handleSort(e.target.value)}
@@ -119,7 +119,7 @@ const AllReviews = () => {
               <strong>Year:</strong> {review.year}
             </p>
             <Link to={`/review/${review._id}`} >
-              <button className="btn btn-block bg-gradient-to-r from-red-900 to-red-500 text-white mt-4">
+              <button className="btn btn-block bg-gradient-to-r from-red-900 to-red-600 text-white mt-4">
                 Explore Details
               </button>
             </Link>

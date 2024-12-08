@@ -104,13 +104,13 @@ const MyReviewCard = ({ e}) => {
               <div className="flex flex-wrap gap-2">
                 <Link
                   to={`/updateReview/${_id}`}
-                  className="btn btn-primary btn-sm"
+                  className="btn bg-gradient-to-r from-green-600 to-green-800 text-white btn-sm"
                 >
                   Update
                 </Link>
                 <button
                   onClick={() => handleDelete(_id)}
-                  className="btn btn-error btn-sm"
+                  className="btn bg-gradient-to-r from-red-600 to-red-800 text-white btn-sm"
                 >
                   Delete
                 </button>

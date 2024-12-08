@@ -73,7 +73,7 @@ const ReviewDetails = () => {
               <p> Rating : {rating}</p>
               <p>Genre : {genres}</p>
               <p> Email : {email}</p>
-              <button className="btn w-48 bg-gradient-to-r from-red-950 to-red-800 text-white"
+              <button className="btn w-48  bg-gradient-to-r from-green-600 to-green-900 text-white"
               onClick={handleWatchList}
               >Add to WatchList</button>
  
