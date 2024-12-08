@@ -103,10 +103,10 @@ export default function Slider() {
           disableOnInteraction: false,
         }}
         pagination={{
-          clickable: true,
+          clickable: false,
         }}
-        navigation={true}
-        modules={[Parallax, Pagination, Navigation, Autoplay]}
+        // navigation={true}
+        modules={[Parallax, Pagination, Autoplay]}
         className="swiper"
       >
         <div

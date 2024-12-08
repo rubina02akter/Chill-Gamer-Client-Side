@@ -1,5 +1,7 @@
 import { useEffect, useState } from "react";
+import { Helmet } from "react-helmet";
 import {  useParams } from "react-router-dom";
+import { toast } from "react-toastify";
 
 const UpdateReview = () => {
   const { id } = useParams();
@@ -9,7 +11,7 @@ const UpdateReview = () => {
   useEffect(() => {
     fetch(`https://game-review-server-side.vercel.app/reviews/${id}`)
       .then((res) => res.json())
-      .then((data) => setReview(data));
+      .then((data) => setReview(data))
   }, [id]);
 
   const handleUpdate = (e) => {
@@ -34,9 +36,9 @@ const UpdateReview = () => {
     })
       .then((res) => res.json())
       .then((data) => {
-        console.log("Update successful:", data);
+       toast("Update successful:", data);
         if (data.insertedId) {
-          console.log("successfully added");
+         toast("successfully added");
         }
       });
   };
@@ -44,6 +46,11 @@ const UpdateReview = () => {
   if (!review) return <div>Loading...</div>;
 
   return (
+    <>
+     <Helmet>
+       <title>Update Review|Game Review</title>
+        <meta name="description" content="Helmet application"></meta>
+       </Helmet>
     <div className="p-6 md:p-16">
       <h2 className="text-3xl font-extrabold">Update Review</h2>
       <form className="space-y-8" onSubmit={handleUpdate}>
@@ -159,6 +166,7 @@ const UpdateReview = () => {
        
       </form>
     </div>
+    </>
   );
 };
 

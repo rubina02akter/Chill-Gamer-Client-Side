@@ -1,9 +1,10 @@
 import userIcon from "../../src/assets/icons/user.png";
-import { Link, NavLink } from "react-router-dom";
-import logo from "../../src/assets/icons/logo-2.png";
+import { Link, NavLink, useNavigate } from "react-router-dom";
+import logo from "../../src/assets/icons/logo-1.png";
 import { useContext,  useEffect, useState } from "react";
 import { AuthContext } from "../Provider/AuthProvider";
 import { FaMoon, FaSun } from "react-icons/fa";
+import { toast } from "react-toastify";
 
 const Navbar = () => {
   const { user, signOutUser} = useContext(AuthContext);
@@ -53,12 +54,12 @@ const Navbar = () => {
       )}
     </>
   );
-
+const navigate = useNavigate()
   const handleSignOut = () => {
     signOutUser()
       .then(() => {
-        console.log("Signout successfully");
-        
+        toast("Signout successfully");
+        navigate('/')
       })
       .catch((error) => console.log("ERROR", error.message));
   };
@@ -85,7 +86,7 @@ const Navbar = () => {
           </div>
           <ul
             tabIndex={0}
-            className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[2] mt-3 w-52 p-2 shadow"
+            className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[2] mt-3 w-52 p-2 shadow text-black"
           >
             {links}
           </ul>
@@ -120,9 +121,16 @@ const Navbar = () => {
             Log out
           </a>
         ) : (
+         <>
           <Link className="btn btn-outline ml-3" to="/login">
             Log in
           </Link>
+          <Link className="btn btn-outline ml-3" to="/register">
+            Register
+          </Link>
+
+         </>
+          
         )}
       </div>
     </div>

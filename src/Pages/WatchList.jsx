@@ -1,6 +1,7 @@
 import React, { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../Provider/AuthProvider";
 import Swal from "sweetalert2";
+import { Helmet } from "react-helmet";
 
 const WatchList = () => {
   const { user } = useContext(AuthContext);
@@ -28,6 +29,12 @@ const WatchList = () => {
   };
 
   return (
+    <>
+    <Helmet>
+       <title>Watchlist|Game Review</title>
+        <meta name="description" content="Helmet application"></meta>
+       </Helmet>
+   
     <div className="overflow-x-auto px-4 py-6 sm:px-6 lg:px-8">
       <table className="min-w-full table-auto bg-white border-collapse shadow-lg rounded-lg">
         <thead className="bg-gray-100">
@@ -76,6 +83,7 @@ const WatchList = () => {
         </tbody>
       </table>
     </div>
+    </>
   );
 };
 

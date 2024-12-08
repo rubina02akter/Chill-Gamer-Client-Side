@@ -3,12 +3,12 @@ import img5 from "../../src/assets/images/Best-PC-Games-2024.jpg";
 
 const Section = () => {
   return (
-    <div className="w-11/12 mx-auto flex flex-col md:flex-row lg:flex-row gap-5 text-white font-thin pb-4">
+    <div className="w-11/12 mx-auto flex flex-col md:flex-row lg:flex-row gap-5 text-white font-thin pb-12">
       <div className="md:w-1/2 w-full">
         <img src={img5} alt="" className="h-[330px] rounded-xl" />
       </div>
       <div className="md:w-1/2 w-full  mb-5">
-        <div className="collapse collapse-arrow bg-gradient-to-r from-purple-900 to-pink-900 mb-4">
+        <div className="collapse collapse-arrow bg-gradient-to-r from-red-950 to-red-800 mb-4">
           <input type="radio" name="my-accordion-2" defaultChecked />
           <div className="collapse-title text-xl font-medium ">
             What is Chill Gamer?
@@ -22,7 +22,7 @@ const Section = () => {
             </p>
           </div>
         </div>
-        <div className="collapse collapse-arrow bg-gradient-to-r from-purple-900 to-pink-900 mb-4">
+        <div className="collapse collapse-arrow bg-gradient-to-r from-red-800 to-red-950 mb-4">
           <input type="radio" name="my-accordion-2" />
           <div className="collapse-title text-xl font-medium">Key Features</div>
           <div className="collapse-content">
@@ -34,7 +34,7 @@ const Section = () => {
             </p>
           </div>
         </div>
-        <div className="collapse collapse-arrow bg-gradient-to-r from-purple-900 to-pink-900">
+        <div className="collapse collapse-arrow bg-gradient-to-r from-red-950 to-red-800">
           <input type="radio" name="my-accordion-2" />
           <div className="collapse-title text-xl font-medium">
             Project Goals

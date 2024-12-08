@@ -19,7 +19,7 @@ const HomeCards = ({ card }) => {
       </div>
 
       <div className="p-3">
-      <Link to={`/highestRated/${card._id}`} className="text-lg font-extrabold underline"> Explore Details</Link>
+      <Link to={`/highestRated/${card._id}`} className="text-lg font-extrabold underline text-red-800"> Explore Details</Link>
       </div>
     
     </div>

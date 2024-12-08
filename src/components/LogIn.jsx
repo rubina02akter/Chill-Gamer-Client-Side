@@ -1,10 +1,10 @@
 import React, { useContext, useState } from 'react';
 import { Link, NavLink, useNavigate } from 'react-router-dom';
-
-
 import { FcGoogle } from "react-icons/fc";
 import { AuthContext } from '../Provider/AuthProvider';
 import Swal from 'sweetalert2';
+import { Helmet } from 'react-helmet';
+
 
 const LogIn = () => {
  
@@ -62,8 +62,11 @@ const LogIn = () => {
  
   return (
     <>
- 
-    <div className="card w-full max-w-lg shrink-0 mx-auto border-black border mb-12  rounded-none">
+      <Helmet>
+       <title>Log In|Game Review</title>
+        <meta name="description" content="Helmet application"></meta>
+       </Helmet>
+    <div className="card w-full max-w-lg shrink-0 mx-auto border-black border my-12  rounded-none">
         <h2 className="font-semibold text-2xl mt-12 ml-8 text-green-700">Log in here</h2>
         <form onSubmit={handleLogIn} className="card-body">
           <div className="form-control">

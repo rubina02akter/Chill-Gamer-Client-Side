@@ -1,6 +1,7 @@
 import  { useContext } from "react";
 import Swal from "sweetalert2";
 import { AuthContext } from "../Provider/AuthProvider";
+import { Helmet } from "react-helmet";
 
 
 const AddReview = () => {
@@ -46,6 +47,11 @@ const AddReview = () => {
 
   return (
     <div>
+
+     <Helmet>
+       <title>Add Review|Game Review</title>
+        <meta name="description" content="Helmet application"></meta>
+       </Helmet>
 
     <div className=" p-6 md:p-16">
       <h2 className="text-3xl font-extrabold">Add Review</h2>

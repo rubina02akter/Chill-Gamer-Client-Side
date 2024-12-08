@@ -2,11 +2,13 @@ import React, { useContext, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { FaEye } from "react-icons/fa";
 import { FaEyeSlash } from "react-icons/fa";
-
+import { useTypewriter } from 'react-simple-typewriter'
 
 import { FcGoogle } from "react-icons/fc";
 import { AuthContext } from "../Provider/AuthProvider";
 import Swal from "sweetalert2";
+import { toast } from "react-toastify";
+import { Helmet } from "react-helmet";
 
 const Register = () => {
   const [success, setSuccess] = useState(false);
@@ -31,6 +33,12 @@ const Register = () => {
       setErrorMessage("Password should be 6 characters or longer");
       return;
     }
+    const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])[A-Za-z]{2,}$/;
+
+    if (!passwordRegex.test(password)) {
+      setErrorMessage("At least 2 uppercase, 2 lowercase");
+      return;
+    }
 
    
 
@@ -52,7 +60,7 @@ const Register = () => {
 
       })
       .catch((error) => {
-        console.log("ERROR", error.message);
+        toast("ERROR", error.message);
         setErrorMessage(error.message);
         setSuccess(false);
       });
@@ -71,12 +79,28 @@ const Register = () => {
       });
   };
 
+  const [text] = useTypewriter({
+    words: ["Register Now",'Welcome to My Website!'], // Text to type
+    loop: true, // Loop indefinitely
+    typeSpeed: 70, // Typing speed in milliseconds
+    deleteSpeed: 50, // Deleting speed in milliseconds
+    delaySpeed: 1000, // Delay between words in milliseconds
+  });
+
   return (
     <>
-      
+    <Helmet>
+       <title>Register|Game Review</title>
+        <meta name="description" content="Helmet application"></meta>
+       </Helmet>
+      <div className="h-12 mx-auto mt-2">
+      <h2 className="font-semibold text-2xl ml-8 text-green-700 text-center">
+         {text}
+        </h2>
+      </div>
       <div className="card bg-base-100 w-full max-w-lg shrink-0 mx-auto border-black border  rounded-none mb-12">
         <h2 className="font-semibold text-2xl mt-12 ml-8 text-green-700">
-          Create an account
+        Create new account
         </h2>
         <form onSubmit={handleRegister} className="card-body">
           <div className="form-control">

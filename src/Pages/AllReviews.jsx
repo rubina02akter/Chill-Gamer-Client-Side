@@ -1,4 +1,5 @@
 import  { useEffect, useState } from 'react';
+import { Helmet } from 'react-helmet';
 import { Link } from 'react-router-dom';
 
 
@@ -55,7 +56,12 @@ const AllReviews = () => {
   };
 
   return (
-    <div className='pb-12 '>
+    <>
+     <Helmet>
+       <title>All Review|Game Review</title>
+        <meta name="description" content="Helmet application"></meta>
+       </Helmet>
+       <div className='pb-12 '>
       <h2 className="text-3xl font-bold py-6 text-center">
         All Reviews ({reviews.length})
       </h2>
@@ -120,6 +126,9 @@ const AllReviews = () => {
         ))}
       </div>
     </div>
+
+    </>
+  
   );
 };
 

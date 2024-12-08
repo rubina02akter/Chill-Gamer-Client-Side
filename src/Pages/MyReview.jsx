@@ -1,6 +1,7 @@
 import { useContext, useEffect } from "react";
 import { AuthContext } from "../Provider/AuthProvider";
 import MyReviewCard from "../components/MyReviewCard";
+import { Helmet } from "react-helmet";
 
 const MyReview = () => {
   const { user,emails, setEmails } = useContext(AuthContext);
@@ -25,7 +26,11 @@ const MyReview = () => {
 
   return (
     <div>
-      <h2 className="text-center">Data length: {emails.length}</h2>
+       <Helmet>
+       <title>My Review|Game Review</title>
+        <meta name="description" content="Helmet application"></meta>
+       </Helmet>
+      
 
       <div>
        {
