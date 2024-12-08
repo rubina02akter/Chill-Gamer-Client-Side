@@ -2,6 +2,8 @@ import { useContext } from "react";
 import { Link } from "react-router-dom";
 import Swal from "sweetalert2";
 import { AuthContext } from "../Provider/AuthProvider";
+import { FcPlus } from "react-icons/fc";
+import { FcFullTrash } from "react-icons/fc";
 
 const MyReviewCard = ({ e}) => {
   const{emails, setEmails} = useContext(AuthContext)
@@ -106,13 +108,13 @@ const MyReviewCard = ({ e}) => {
                   to={`/updateReview/${_id}`}
                   className="btn bg-gradient-to-r from-green-600 to-green-800 text-white btn-sm"
                 >
-                  Update
+                 <FcPlus /> Update
                 </Link>
                 <button
                   onClick={() => handleDelete(_id)}
                   className="btn bg-gradient-to-r from-red-600 to-red-800 text-white btn-sm"
                 >
-                  Delete
+                 <FcFullTrash /> Delete
                 </button>
               </div>
             </td>

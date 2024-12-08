@@ -2,7 +2,7 @@ import { useContext, useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import Swal from "sweetalert2";
 import { AuthContext } from "../Provider/AuthProvider";
-
+import { FcLike } from "react-icons/fc";
 const ReviewDetails = () => {
   const { id } = useParams(); 
   const [detail, setDetail] = useState(null); 
@@ -75,7 +75,7 @@ const ReviewDetails = () => {
               <p> Email : {email}</p>
               <button className="btn w-48  bg-gradient-to-r from-green-600 to-green-900 text-white"
               onClick={handleWatchList}
-              >Add to WatchList</button>
+              ><FcLike />Add to WatchList</button>
  
             </div>
           

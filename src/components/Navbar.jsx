@@ -113,8 +113,8 @@ const navigate = useNavigate()
               />
             </div>
           ) : (
-           <div cl>
-             <img src={userIcon} alt="user" />
+           <div className="rounded-full">
+             <img src={userIcon} alt="user" className="rounded-full"/>
            </div>
           )}
         </div>
@@ -124,10 +124,10 @@ const navigate = useNavigate()
           </a>
         ) : (
          <>
-          <Link className="btn btn-outline ml-3" to="/login">
+          <Link className="btn btn-outline ml-3 text-white" to="/login">
             Log in
           </Link>
-          <Link className="btn btn-outline ml-3" to="/register">
+          <Link className="btn btn-outline ml-3 text-white" to="/register">
             Register
           </Link>
 
