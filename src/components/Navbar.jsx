@@ -113,7 +113,9 @@ const navigate = useNavigate()
               />
             </div>
           ) : (
-            <img src={userIcon} alt="user" />
+           <div cl>
+             <img src={userIcon} alt="user" />
+           </div>
           )}
         </div>
         {user ? (

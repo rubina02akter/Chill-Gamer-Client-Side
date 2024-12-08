@@ -27,11 +27,10 @@ const MyReview = () => {
   return (
     <div>
        <Helmet>
-       <title>My Review|Game Review</title>
+       <title>My Review|Chill Gamer</title>
         <meta name="description" content="Helmet application"></meta>
        </Helmet>
-      
-
+    
       <div>
        {
         emails.map(e=><MyReviewCard e={e} ></MyReviewCard>)

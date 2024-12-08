@@ -7,7 +7,7 @@ const UpdateReview = () => {
   const { id } = useParams();
   const [review, setReview] = useState(null);
 
-  // Fetch the existing review details to prefill the form
+ 
   useEffect(() => {
     fetch(`https://game-review-server-side.vercel.app/reviews/${id}`)
       .then((res) => res.json())
@@ -26,7 +26,7 @@ const UpdateReview = () => {
     const email = form.email.value;
     const updatedReview = { photo, name, review, rating, genres, year, email };
 
-    // API call to update the review
+    // update the review
     fetch(`https://game-review-server-side.vercel.app/myReviews/${id}`, {
       method: "PUT",
       headers: {
@@ -48,7 +48,7 @@ const UpdateReview = () => {
   return (
     <>
      <Helmet>
-       <title>Update Review|Game Review</title>
+       <title>Update Review|Chill Gamer</title>
         <meta name="description" content="Helmet application"></meta>
        </Helmet>
     <div className="p-6 md:p-16">

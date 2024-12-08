@@ -61,10 +61,10 @@ const ReviewDetails = () => {
   return (
     <div>
       {detail ? (
-        <div className="py-12 flex justify-center ">
+        <div className="py-12 flex justify-center bg-gradient-to-r from-gray-950 to-gray-700 text-white">
           <div className="flex flex-col lg:flex-row  gap-4 m-12">
             <div className=" rounded-xl">
-              <img src={photo} alt="game" className="w-[600px] h-[350px] object-cover  rounded-xl" />
+              <img src={photo} alt="game" className="border border-white w-[600px] h-[350px] object-cover  rounded-xl" />
             </div>
 
             <div className=" rounded-xl  text-sm space-y-3">
@@ -73,7 +73,7 @@ const ReviewDetails = () => {
               <p> Rating : {rating}</p>
               <p>Genre : {genres}</p>
               <p> Email : {email}</p>
-              <button className="btn w-48 bg-gradient-to-r from-red-900 to-red-700 text-white"
+              <button className="btn w-48 bg-gradient-to-r from-red-950 to-red-800 text-white"
               onClick={handleWatchList}
               >Add to WatchList</button>
  

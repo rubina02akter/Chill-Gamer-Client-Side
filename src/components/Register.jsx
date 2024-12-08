@@ -29,14 +29,14 @@ const Register = () => {
     setErrorMessage("");
     setSuccess(false);
 
-    if (password.length < 6) {
-      setErrorMessage("Password should be 6 characters or longer");
-      return;
-    }
-    const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])[A-Za-z]{2,}$/;
+    // if (password.length < 6) {
+    //   setErrorMessage("Password should be 6 characters or longer");
+    //   return;
+    // }
+    const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z]).{6,}$/;
 
-    if (!passwordRegex.test(password)) {
-      setErrorMessage("At least 2 uppercase, 2 lowercase");
+    if (!passwordRegex.test(password)){
+      setErrorMessage("At least 1 uppercase, 1 lowercase and must be 6 character");
       return;
     }
 
@@ -93,12 +93,12 @@ const Register = () => {
        <title>Register|Game Review</title>
         <meta name="description" content="Helmet application"></meta>
        </Helmet>
-      <div className="h-12 mx-auto mt-2">
+      <div className="h-12 mx-auto mt-6">
       <h2 className="font-semibold text-2xl ml-8 text-green-700 text-center">
          {text}
         </h2>
       </div>
-      <div className="card bg-base-100 w-full max-w-lg shrink-0 mx-auto border-black border  rounded-none mb-12">
+      <div className="card bg-base-100 w-11/12 max-w-lg shrink-0 mx-auto border-black border  rounded-none mb-12">
         <h2 className="font-semibold text-2xl mt-12 ml-8 text-green-700">
         Create new account
         </h2>

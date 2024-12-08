@@ -58,16 +58,14 @@ const AllReviews = () => {
   return (
     <>
      <Helmet>
-       <title>All Review|Game Review</title>
+       <title>All Review|Chill Gamer</title>
         <meta name="description" content="Helmet application"></meta>
        </Helmet>
        <div className='pb-12 '>
-      <h2 className="text-3xl font-bold py-6 text-center">
-        All Reviews ({reviews.length})
-      </h2>
+      
 
       {/* Sort and Filter Controls */}
-      <div className="flex justify-end gap-4 mb-6 w-11/12 mx-auto">
+      <div className="flex justify-end gap-4 mb-6 w-11/12 mx-auto mt-6">
         {/* Sort Dropdown */}
         <select
           onChange={(e) => handleSort(e.target.value)}
@@ -77,9 +75,9 @@ const AllReviews = () => {
           <option value="" disabled>
             Sort by
           </option>
-          <option value="rating-asc">Rating (Ascending)</option>
+        
           <option value="rating-desc">Rating (Descending)</option>
-          <option value="year-asc">Year (Ascending)</option>
+       
           <option value="year-desc">Year (Descending)</option>
         </select>
 
@@ -116,6 +114,9 @@ const AllReviews = () => {
             </p>
             <p>
               <strong>Rating:</strong> {review.rating}/5
+            </p>
+            <p>
+              <strong>Year:</strong> {review.year}
             </p>
             <Link to={`/review/${review._id}`} >
               <button className="btn btn-block bg-gradient-to-r from-red-900 to-red-500 text-white mt-4">

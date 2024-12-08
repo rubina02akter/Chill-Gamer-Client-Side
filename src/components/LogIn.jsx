@@ -66,7 +66,7 @@ const LogIn = () => {
        <title>Log In|Game Review</title>
         <meta name="description" content="Helmet application"></meta>
        </Helmet>
-    <div className="card w-full max-w-lg shrink-0 mx-auto border-black border my-12  rounded-none">
+    <div className="card w-11/12 max-w-lg shrink-0 mx-auto border-black border my-12  rounded-none">
         <h2 className="font-semibold text-2xl mt-12 ml-8 text-green-700">Log in here</h2>
         <form onSubmit={handleLogIn} className="card-body">
           <div className="form-control">

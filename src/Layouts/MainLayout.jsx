@@ -12,7 +12,7 @@ const MainLayout = () => {
   return (
     <div className='font-serif'>
       {/* Sticky Navbar */}
-      <div className="sticky top-0 bg-transparent z-50 bg-opacity-60 backdrop-blur-md shadow-md">
+      <div className=" sticky top-0 bg-transparent z-50 bg-opacity-60 backdrop-blur-md shadow-md">
         <Navbar />
       </div>
   

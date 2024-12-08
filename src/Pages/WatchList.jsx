@@ -31,7 +31,7 @@ const WatchList = () => {
   return (
     <>
     <Helmet>
-       <title>Watchlist|Game Review</title>
+       <title>Watchlist|Chill Gamer</title>
         <meta name="description" content="Helmet application"></meta>
        </Helmet>
    

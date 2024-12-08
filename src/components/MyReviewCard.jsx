@@ -5,7 +5,7 @@ import { AuthContext } from "../Provider/AuthProvider";
 
 const MyReviewCard = ({ e}) => {
   const{emails, setEmails} = useContext(AuthContext)
-  const { photo, name, review, rating, genres, year, email, _id } = e;
+  const { photo, name, rating, genres, email, _id } = e;
 
   const handleDelete = (_id) => {
     Swal.fire({

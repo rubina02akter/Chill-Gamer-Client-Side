@@ -49,7 +49,7 @@ const AddReview = () => {
     <div>
 
      <Helmet>
-       <title>Add Review|Game Review</title>
+       <title>Add Review|Chill Gamer</title>
         <meta name="description" content="Helmet application"></meta>
        </Helmet>
 

@@ -23,7 +23,7 @@ const Home = () => {
     <>
    
        <Helmet>
-       <title>Home|Game Review</title>
+       <title>Home|Chill Gamer</title>
         <meta name="description" content="Helmet application"></meta>
        </Helmet>
      
@@ -51,15 +51,19 @@ const Home = () => {
       </div>
 
       <div>
-        <h2 className="font-extrabold text-center text-2xl my-4">
+       <Fade>
+       <h2 className="font-extrabold text-center text-2xl my-4">
           Explore Chill Gamer – Your Gateway to Relaxed Game Reviews and
           Features!
         </h2>
+       </Fade>
         <p className="text-center mb-4 font-thin text-gray-500">
           Discover Chill Gamer – A vibrant platform with game reviews,
           user-friendly features, and a detailed FAQ for your convenience!
         </p>
-        <Section></Section>
+       <Fade>
+       <Section></Section>
+       </Fade>
       </div>
     </div>
     </>
