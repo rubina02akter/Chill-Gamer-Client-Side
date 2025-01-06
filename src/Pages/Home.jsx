@@ -5,7 +5,8 @@ import Section from "../components/Section";
 import MarqueeComponent from "../components/Marquee";
 import { Fade } from "react-awesome-reveal";
 import { Helmet } from "react-helmet";
-
+import BlogSection from "../components/BlogSection";
+import newsImg from '../../src/assets/icons/icons8-newsletter-64.png';
 const Home = () => {
   const [cards, setCards] = useState([]);
 
@@ -63,9 +64,14 @@ const Home = () => {
           </Fade>
         </div>
 
+        {/*  */}
+        <BlogSection></BlogSection>
+
         {/* Newsletter Section */}
-      
-        <div className="flex justify-center ">
+      <div className="flex justify-center relative top-16 ">
+        <img src={newsImg} alt="" />
+      </div>
+        <div className="flex justify-center w-11/12 mx-auto">
         <div className="mt-10 p-8 bg-gradient-to-r from-black to-red-900 shadow-lg animate__animated animate__fadeInUp rounded-2xl mb-4">
           <h3 className="text-3xl font-bold text-center text-white mb-6">
             Subscribe to our Newsletter
