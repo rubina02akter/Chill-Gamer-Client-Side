@@ -3,7 +3,7 @@ import img5 from "../../src/assets/images/Best-PC-Games-2024.jpg";
 
 const Section = () => {
   return (
-    <div className="w-11/12 mx-auto flex flex-col md:flex-row lg:flex-row gap-5 text-white font-thin pb-12">
+    <div className="w-11/12 mx-auto flex flex-col md:flex-row lg:flex-row gap-5 text-white font-thin ">
       <div className="md:w-1/2 w-full">
         <img src={img5} alt="" className="h-[330px] rounded-xl" />
       </div>

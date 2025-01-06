@@ -12,6 +12,8 @@ import PrivateRoutes from "./PrivateRoutes";
 import ReviewDetails from "../Pages/ReviewDetails";
 import Error from "../Pages/Error";
 import ReviewCards from "../components/ReviewCards";
+import AboutUs from "../Pages/AboutUs";
+import Contact from "../Pages/Contact";
 
 
 const router = createBrowserRouter([
@@ -69,7 +71,15 @@ const router = createBrowserRouter([
       {
         path: 'highestRated/:id',
         element: <ReviewCards></ReviewCards>
-      }
+      },
+      {
+        path: 'about',
+        element: <AboutUs></AboutUs>
+      },
+      {
+        path: 'contact',
+        element: <Contact></Contact>
+      },
       
     ]
   }
