@@ -59,7 +59,7 @@ const Contact = () => {
               </svg>
             </div>
             <div>
-              <p>rubinaakter0108@gmail.com</p>
+              <p>demo@gmail.com</p>
             </div>
           </div>
           {/* Phone */}
@@ -81,7 +81,7 @@ const Contact = () => {
               </svg>
             </div>
             <div>
-              <p>01729773332</p>
+              <p>*********</p>
             </div>
           </div>
           {/* Location */}
@@ -113,21 +113,21 @@ const Contact = () => {
           <a
             target="_blank"
             rel="noopener noreferrer"
-            href="https://www.facebook.com/sh.rubina?mibextid=ZbWKwL"
+            href=""
           >
             <FaFacebook className="text-3xl text-blue-700 dark:text-blue-400" />
           </a>
           <a
             target="_blank"
             rel="noopener noreferrer"
-            href="https://x.com/rubinaakter4321"
+            href=""
           >
             <FaTwitter className="text-3xl text-sky-400 dark:text-sky-200" />
           </a>
           <a
             target="_blank"
             rel="noopener noreferrer"
-            href="https://github.com/rubina02akter"
+            href=""
           >
             <FaGithub className="text-3xl dark:text-gray-100" />
           </a>
